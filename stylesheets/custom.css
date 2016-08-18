@@ -1,0 +1,32 @@
+body{
+   padding-top:0px;
+   margin-top: 0px;
+}
+
+header a.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent url(../images/github-button.png) 0 0 no-repeat;
+}
+
+ul.book{margin-bottom:20px;font-size:16px;font-weight:300;line-height:1.4}
+
+.main {
+  width: 80%;
+}/*
+@media (min-width: 768px) {
+  .main {
+    width: 553.5px;
+  }
+}
+@media (min-width: 992px) {
+  .main {
+    width: 721.5px;
+  }
+}
+@media (min-width: 1200px) {
+  .main {
+    width: 877.5px;
+  }}
+*/
