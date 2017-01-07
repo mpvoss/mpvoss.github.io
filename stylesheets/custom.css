@@ -1,26 +1,26 @@
 body{
-   margin: 0px;
-   padding-top:0px;
-   margin-top: 0px;
-   width: 70%;
+padding-bottom:1cm;
+ 
 }
 
-header h1{
-    margin:0px;
+nav {
+    display: inline-block;
+    list-style-type: none; 
+    margin:0 auto;
+    width: 70%;
 }
 
-header a.button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  /*background: transparent url(../images/github-button.png) 0 0 no-repeat;*/
+
+.main-content{
+margin-left: 15%;
+margin-right: 15%;
+    display: inline-block;
+
+
+
+
 }
-
-ul.book{margin-bottom:20px;font-size:16px;font-weight:300;line-height:1.4}
-
-.main {
-  width: 80%;
-}/*
+/*
 @media (min-width: 768px) {
   .main {
     width: 553.5px;
