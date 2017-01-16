@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="header.css">
+</head>
+<script>
+var global_xCenter = -0.5;
+var global_yCenter = 0;
+var global_width = 5;
+var global_height = 3;
+var global_colorScale = 65;
+</script>
+
+
+
+<body>
+<div id="left">
+<br><br>
+<center> <img src="MV8.png" alt="MV logo" style="width:150px;height:114px"></center><br>
+<br>
+<center>
+<ul>
+ <li><a href="http://www.matthewvoss.net">Home</a></li>
+  <li><a href="http://www.matthewvoss.net/about.html">About</a></li>
+  <li><a href="http://www.matthewvoss.net/projects.html">Projects</a></li>
+  <li><a href="http://www.matthewvoss.net/contact.html">Contact</a></li>
+</ul>
+</center>
+</div>
+<div id="right">
+<center>
+<br>
+Welcome to Matthew Voss's webpage! <br>
+It is very much under construction. Soon I'll have examples <br>
+of some of my programming projects and other info. In the mean <br>
+time, feel free to play with the Javascript fractal explorer I <br>
+made below. (Just click on it to zoom in to a certain area)<br>
+Thank you for visiting!<br>
+</center>
+<br>
+<center>
+<canvas id="canvas" width="750", height="450" style="display: inline;text-align: center;"></canvas>
+<center>
+
+<button onclick="initializeFractal()">Reset Fractal</button>
+<button onclick="showControls()">Show Controls</button>
+<button onclick="shiftColorScale(-15)">Shift coloring down</button>
+<button onclick="shiftColorScale(15)">Shift coloring up</button>
+
+
+</div>
+</body>
+<script src="fractal.js"></script>
+<script>initializeFractal();</script>
+</html>
+

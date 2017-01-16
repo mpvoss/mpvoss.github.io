@@ -19,6 +19,15 @@
   <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
 
   <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+<script src="fractal.js"></script>
+
+<script>
+var global_xCenter = -0.5;
+var global_yCenter = 0;
+var global_width = 5;
+var global_height = 3;
+var global_colorScale = 65;
+</script>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -55,7 +64,7 @@
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="chess.html">Chess AI</a></li>
                   <li><a href="#">Stock Market AI</a></li>
-                  <li><a href="fractal.html">Fractal Motion</a></li>
+                  <li><a href="#">Fractal Motion</a></li>
 
                 </ul>
               </li>
@@ -71,15 +80,23 @@
       <div class="inner clearfix">
         <div class="main-content">
 
-          <center><img class="img-circle" src="images/matthew.jpg" class="img-responsive" width="50%" height="50%" alt="Matthew Voss"></center>
-          <div class="container-fluid main">
-           <h3 class="text-center">Code monkey, evolved.</h3>
+<center>
+         
+<canvas id="canvas" width="750", height="450"></canvas></center>
+<br>
+<center>
+<button onclick="initializeFractal()">Reset Fractal</button>
+<button onclick="showControls()">Show Controls</button>
+<button onclick="shiftColorScale(-15)">Shift coloring down</button>
+<button onclick="shiftColorScale(15)">Shift coloring up</button>
+</center>
 
-            <p class="lead" align="middle">
-              Programmers that write solid code and know their design patterns are great and all, but I've worked to be more than that.  In addition to technical skills I've worked to polish the soft skills and intrapersonal skills that help me communicate and work with others.  
-              <br><br>
-              Write-ups on my side projects are on the projects drop down, direct any inquiries to matthewpvoss@gmail.com.
-            </p></div>
+
+ <center><img class="img-rounded" src="images/FractalImage_3.png" class="img-responsive" width="75%" height="75%" alt="fractal"></center><br>
+ <center><img class="img-rounded" src="images/FractalImage_5.png" class="img-responsive" width="75%" height="75%" alt="fractal"></center><br>
+ <center><img class="img-rounded" src="images/FractalImage_9.png" class="img-responsive" width="75%" height="75%" alt="fractal"></center>
+
+</div>
 
 
 
@@ -92,5 +109,6 @@
 
 
     </body>
+<script>initializeFractal();</script>
     </html>
 
