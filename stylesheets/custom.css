@@ -6,7 +6,7 @@ padding-bottom:1cm;
 
 nav {
 
-    display: inline-block;
+    display: block;
     list-style-type: none; 
     margin:0 auto;
     width: 70%;
