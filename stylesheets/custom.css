@@ -19,6 +19,11 @@ margin-left: 15%;
 margin-right: 15%;
     display: inline-block;
 
+    display: block;
+    list-style-type: none; 
+    margin:0 auto;
+    width: 70%;
+
 }
 
 
