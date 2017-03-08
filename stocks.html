@@ -1,0 +1,152 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset='utf-8'>
+      <meta http-equiv="X-UA-Compatible" content="chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="stylesheets/codestyles.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="stylesheets/pygments.css" media="screen">      <link rel="stylesheet" type="text/css" href="stylesheets/pygments14.css" media="screen">
+
+
+      <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+      <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+      <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <title>Matthew Voss</title>
+   </head>
+   <body>
+      <header>
+         <div class="inner">
+         </div>
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="index.html">Matthew Voss</a>
+               </div>
+               <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                     <li><a href="about.html">About <span class="sr-only">(current)</span></a></li>
+                     <li><a href="books.html">Books</a></li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                           <li><a href="#">Chess AI</a></li>
+                           <li><a href="#">Stock Market AI</a></li>
+                           <li><a href="#">Fractal Motion</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <div id="content-wrapper">
+      <div class="inner clearfix">
+         <div class="main-content">
+
+<center><h1>Stock Market AI</h1></center>
+<center>Losing money in the stock market, automated</center><br>
+Projects like trying to “solve” the market are fun because there’s a lot of data/literature out there already, the technical challenges are very interesting, and there’s always the 0.00000000001% chance that if you succeed you can get super mega rich.  It’s for these reasons that I tried my hand at writing a stock market AI a while back.
+
+The goal?  Develop heuristics or some kind of training model that could make money in a simulated environment.  I chose Python for this project because it’s fun to use and I wanted more experience with it. <br><br>
+More quantitatively, I wanted to see at least an 8% ROI on average.  You can usually get that with a low cost index fund so any other approach that’s more effort should earn at least that.<br>
+
+
+<center><h3>Attempt #1: Genetic Algorithm (basic)</h3></center>
+This attempt was mostly to develop a framework for getting the data I needed and running models against training data.  <br><br>
+Genetic algorithms simulate evolution by breaking solutions to a problem into "genomes" that you can mutate and combine with other genomes.  You then measure the "fitness" (or how good the solution is) and let fit genomes spread among your populations while the weak solutions are removed.
+
+<br><br>
+
+Genetic algorithms are often a good fit for problems with massive solution spaces that can't be searched exhaustively.  This is because their random mutations can stumble onto great answers that you couldn't have found iteratively.  As such, it seemed like a good fit for this problem<br><br> 
+<br>TODO: Build diagram
+<center><h3>Data acquisition</h3></center>
+I used the PandasDatareader library for downloading stock prices from the Yahoo Finance API.  This was very fast and easy and I saved off the fields I needed to a local postgres database so I didn’t need to wait on data downloads for every test.
+<br><br>
+While my goal was to randomly pick 18 months of data for the AI to train on, then validate it against the next 12 months of data, my random timeframes overlapped with the various financial crises surprisingly often.  For this reason I mostly used the 2009 - 2015 time frame to get a stable framework and then widened it up a bit.  I figured most of Wall Street was bested by the 2008 housing bubble and the 2000 dot com bust, it was okay if my little python project got hosed by them as well. <br><br>
+I took random samples from the S&P 500, kindly provided <a href="https://github.com/datasets/s-and-p-500-companies">here</a>.
+
+<center><h3>AI Model</h3></center>
+My first heuristic was quite basic.  Each agent in my population had
+<ul>
+<li> buyThreshold: The percentage increase over the mean of the training data that was needed before the agent would buy the stock.  This was a conservative approach that was mostly hoping to milk the natural ebs and wanes of the market.</li>  
+<li>maxLoss: the most a stock price can drop below the buy-in point before an agent would sell the stock and bail out.</li>
+<li>desiredProfit: How much the AI wants to make before it sells a stock.</li>
+</ul>
+<br><br>
+Now all that's left is to randomize a population and let it discover the next best stock strategy!  The main loop for the simulation is thus:
+
+<center><h3>DO SOMETHING ALREADY</h3></center>
+As is usually the case with Genetic Algorithms, one of my biggest issues was tuning the heuristic and mutation parameters.  Either there wasn’t enough exploration and nothing ever evolved that was more fit than the initial batch or it explored too wildly and never refined itself into good matches.
+<br><br>
+Clearly this model wasn’t really getting me anywhere interesting.  Time to upgrade my basic 3-parameter model.
+
+<h3>Attempt #2: Genetic Algorithm (slightly less basic)</h3>
+
+
+
+
+
+
+<div class="hlcode" style="text-align: left;">
+<div class="syntax"><pre><span></span><span class="k">for</span> <span class="n">generation</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">MAX_GENERATIONS</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="n">sample</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="n">sample</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">training_stocks</span><span class="p">,</span> <span class="n">debug</span><span class="p">)</span>
+
+    <span class="c1"># Sort by fitness, best first</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">attrgetter</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">print_progress</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">generation</span><span class="p">)</span>
+
+    <span class="c1"># If only one agent has nonzero score, clone him to base the next generation</span>
+    <span class="c1"># off the only decent specimen</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="p">[</span><span class="n">ai</span> <span class="k">for</span> <span class="n">ai</span> <span class="ow">in</span> <span class="n">population</span> <span class="k">if</span> <span class="n">ai</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="n">population</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">score</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">top</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">population</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Make lots of mutants based off of the top two</span>
+    <span class="n">population</span> <span class="o">=</span> <span class="n">update_population</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">generation</span><span class="p">)</span>
+
+    <span class="n">best</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">population</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">bestList</span> <span class="o">=</span> <span class="p">[</span><span class="n">stock</span><span class="o">.</span><span class="n">max_profit</span><span class="p">()</span> <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">training_stocks</span><span class="p">]</span>
+<span class="n">optimal</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bestList</span><span class="p">)</span>
+<span class="n">util</span><span class="o">.</span><span class="n">graph_results</span><span class="p">(</span><span class="n">best</span><span class="p">,</span> <span class="n">optimal</span><span class="p">)</span>
+</pre></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+
+

@@ -80,10 +80,20 @@ var global_colorScale = 65;
       <div class="inner clearfix">
         <div class="main-content">
 
+
+<center>
+               <h2>Fractal programming</h2>
+            </center>
+
+I’m a sucker for art with high self similarity and detail/texture.  Fractal art has these things in abundance, so it wasn’t long after I started coding that I made a simple fractal explorer.  It let you zoom into interesting areas, save screenshots, adjust the color rendering etc.  
+<br><br>
+Below is a similar project I coded up in JavaScript in college so I could put it on webpages.  Go ahead and click around, see if you can find some cool patterns!  (Hint, the program slows down if you have lots of the big black areas in the frame.  Because of the escape-time algorithm I’m using, you have to loop up to 1,000 for every pixel in the dark areas and clearly that can take a while)
+
+<br><br>
+
 <center>
          
 <canvas id="canvas" width="750", height="450"></canvas></center>
-<br>
 <center>
 <button onclick="initializeFractal()">Reset Fractal</button>
 <button onclick="showControls()">Show Controls</button>
@@ -92,6 +102,27 @@ var global_colorScale = 65;
 </center>
 
 
+<br>
+I really liked videos like <a href="https://youtu.be/0jGaio87u3A?t=15s">this</a> on Youtube where it would render a video of exploring cool parts of fractals.  After graduating college I redid the project in python with this feature so I could make similar videos.  Now that I would be rendering thousands of frames of fractals, however, I opted to learn some CUDA and offload the heavy lifting to my GPU.  This has massive performance gains, rendering a 1080 x 900 image with XXX specs takes YYYY seconds in pure Python, and ZZZZ seconds utilizing a GPU.  TODO FIX SPECS
+<br><br>
+The next challenge of course was turning all of those image frames into a video.  Usually I like to keep my projects platform independent, so when my research pointed to ffmpeg I got a little shy.  I chose instead to try OpenCV, which was a massive hassle.  While it is a very powerful and impressive tool, it was a massive overkill for what I was trying to do, and also took a fair amount of work and configuration to download and compile properly. 
+<br><br>
+I did get it working, though, and produced some nice videos like this: TODO ADD GIF
+<br><br>
+They’re still a little choppy, though.  Not to mention the coloring is very basic escape-time stuff. This leads to very discrete bands in the color instead of the nice color gradients like you see here <LINK>.
+<br><br>
+In order to implement that nice gradient coloring, usually people take this approach BLAH BLAH BLAH BLAH.
+<br><br>
+Tech used:
+<ul><li>Python</li>
+<li>Pycuda</li>
+<li>OpenCV</li>
+<li>CudaToolKit</li>
+</ul>
+
+<br><br>
+
+Here's some other cool images I've made with my own fractal programs:<br><br>
  <center><img class="img-rounded" src="images/FractalImage_3.png" class="img-responsive" width="75%" height="75%" alt="fractal"></center><br>
  <center><img class="img-rounded" src="images/FractalImage_5.png" class="img-responsive" width="75%" height="75%" alt="fractal"></center><br>
  <center><img class="img-rounded" src="images/FractalImage_9.png" class="img-responsive" width="75%" height="75%" alt="fractal"></center>
