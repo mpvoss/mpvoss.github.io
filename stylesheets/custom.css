@@ -29,6 +29,16 @@ margin-right: 15%;
 
 }
 
+@media  (max-width: 766px) {
+
+.main-content{
+padding-left: 10px;
+padding-right: 10px;
+
+}
+
+
+}
 
 /*
 @media (min-width: 768px) {
