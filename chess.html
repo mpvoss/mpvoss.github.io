@@ -69,20 +69,20 @@
 
             I love writing AI when I can watch them learn and grow more intelligent.  Chess is a great game for learning AI because there is a lot of literature available to get you started.  At the same time there are massive scalability challenges, so good design is critical to building a strong engine.
             <br><br>
-            Being the ambitious sort, I decided I wanted to write a chess engine because I was learning Java.  I always learn a new language or framework best with a project and at the time it made sense to combine a game I liked with a new programming project.  Of course when you consider the massive complexity of some open source chess engines (STOCKFISH LINK) you can see why this was no small task.
+            Being the ambitious sort, I decided I wanted to write a chess engine because I was learning Java.  I always learn a new language or framework best with a project and at the time it made sense to combine a game I liked with a new programming project.  Of course when you consider the massive complexity of some open source chess engines (and the entire online communities it takes to develop them) you can see why this was no small task.
             <br><br>
             Being new to Java and chess programming in general I learned a lot and re-wrote the engine several times before coming up with anything resmbling an intelligent chess player.  
 	    <br><br>
- 	    That being said, I am rather proud of the engine I made.  It beat me pretty consistently and my ELO rating was around 1400 at the time.  It beat my friends and the Windows chess engine Chess Titan.  Unfortunately it would still make strange mistakes now and then due to heuristic tuning errors. Example: compromising on king safety for a pawn grab.<br><br>
-	    Even so it was a terrificly fun project.  Watching the AI learn chess and make increasingly intelligent moves was incredible.  Eventually it started punishing my own mistakes pretty severely, and I have to play pretty carefully to beat it.
+ 	    That being said, I am rather proud of the engine I made.  It beat me pretty consistently and my ELO rating was around 1400 at the time.  It can also beat my friends kind enough to test it for me and the Windows chess engine Chess Titan.  Unfortunately it would still make strange mistakes now and then due to heuristic tuning errors. Example: compromising on king safety for a pawn grab.<br><br>
+	    Even so it was a terrificly fun project.  Watching the AI learn chess strategy and make increasingly intelligent moves was incredible.  Eventually it started punishing my own mistakes pretty severely, and I have to play pretty carefully to beat it.
 <br><br>
 
-The source code for the project is on GitHub: https://github.com/mpvoss/Chess
+             The source code for the project is on GitHub: <a href="https://github.com/mpvoss/Chess">https://github.com/mpvoss/Chess</a><br><br>
 Disclaimer: I was new to Java and programming in general when writing this.  There are many opportunities for improvement, to say the least!
 
 <br><br>
 Here’s what I learned on this journey:
-            <br><br>
+            <br><br><br><br>
             <center>
                <h3>Space-time tradeoff</h3>
             </center>
@@ -96,7 +96,7 @@ Here’s what I learned on this journey:
             <br><br>
             The game tree is simply too big, it grows at a rate of b<sup>d</sup>, where b is the branching factor (~35) and d is the depth to which you are searching.  My JVM usually crashed after a depth of 4 or 5 ply (35^5 is about 52 million Move objects that I was storing in my tree).
             <br><br>
-            The better approach is using a hashtable to store good moves as you find them.  This has huge savings because it’s very common to see the same positions many times over the course of your search.  Usually a specialized hashtable called a Transposition Table (LINK TO WIKIPEDIA) is used and there’s plenty of business logic about when you can remove a position from the table and how you handle collisions and whatnot. 
+            The better approach is using a hashtable to store good moves as you find them.  This has huge savings because it’s very common to see the same positions many times over the course of your search.  Usually a specialized hashtable called a <a href="https://chessprogramming.wikispaces.com/Transposition+Table">Transposition Table</a> is used and there’s plenty of business logic about when you can remove a position from the table and how you handle collisions and whatnot. 
 	    <br><br>
             With a transposition table my engine would be able to look much deeper than the pitiful 4 or 5 ply I was doing before.  This would make a huge difference with the strength of the engine, and it's on my TODO list if I ever rewrite the engine for the umpteenth time.
             <br><br>
@@ -106,9 +106,9 @@ Here’s what I learned on this journey:
             <br>
             Since I was learning Java I designed the engine in a very Object Oreinted way.  I had a class for Pieces, Moves, etc.  The game tree was a graph of moves, and to explore the board you had to make and unmake moves on a global board object (I was new to coding, I admit the design was horrendous).  This made for mostly easy to read code, but it’s simply not how the top engines represent the game.
             <br><br>
-            Most self-respecting engines use <a href="https://en.wikipedia.org/wiki/Bitboard">bitboards</a> to represent the board.  This is a 64 bit datatype (usually a long) that represent if a piece is on a square of not.  You can have a white bishop bitboard, a black rook bitboard, etc.  Each bit of the 64 is associated with a square on the board, and you can combine all the bitboards to see the entire position.  The reason this is fast is because modern CPU’s use 64 bit registers, and when your entire board can be manipulated using bit shifting instructions on the CPU you can crunch positions insanely quickly.
+            Most self-respecting engines use <a href="https://en.wikipedia.org/wiki/Bitboard">bitboards</a> to represent the board.  This is a 64 bit datatype (usually a long) that represent if a piece is on a square or not.  You can have a white bishop bitboard, a black rook bitboard, etc.  Each bit of the 64 is associated with a square on the board, and you can combine all the bitboards to see the entire position.  The reason this is fast is because modern CPU’s use 64 bit registers, and when your entire board can be manipulated using bit shifting instructions on the CPU you can crunch positions insanely quickly.
             <br><br>
-            I actually implemented this in an assignment where the goal was to solve a puzzle where you slid around tetris-looking pieces on a board. Code available here (https://github.com/mpvoss/BFS_Puzzle).  The performance gains are real.  My implementation with bitboards solved the puzzle in under 4 seconds.  Other java implementations representing the board as char arrays or similar took 4 to 5 minutes to run.  That said, you also end up with code like this:
+             I actually implemented this in an assignment where the goal was to solve a puzzle where you slid around tetris-looking pieces on a board. Code available <a href="https://github.com/mpvoss/BFS_Puzzle">here</a>.  The performance gains are real.  My implementation with bitboards solved the puzzle in under 4 seconds.  Other java implementations representing the board as char arrays or similar took 4 to 5 minutes to run.  That said, you also end up with code like this:
             <br><br>
             <div class="code">
                <span class="InlineComment">//&nbsp;Bitmaps&nbsp;for&nbsp;squares&nbsp;where&nbsp;it&nbsp;is&nbsp;illegal&nbsp;to&nbsp;move&nbsp;left,&nbsp;right,&nbsp;down,&nbsp;or&nbsp;up</span><br />
@@ -136,7 +136,35 @@ Here’s what I learned on this journey:
 <br><br>
 Great performance? Absolutely. Easy to read?  Oh heavens no.  That being said, I would love to see how strong my engine could be if it really leveraged the 64 bit CPU it was running on.  This is also on the TODO list if the rewrite ever happens.
 <br><br>
-            Awesome resources I used on this project:
+             
+             <br><br>
+            <center>
+               <h3>(Not) Re-inventing the wheel</h3>
+            </center>
+            <br>
+             <section>
+             <figure style="float: left;">
+             <img class="img-rounded" src="images/Arena.png" class="img-responsive" width="50%" height="50%" alt="Matthew Voss"  >
+             <figcaption >Arena, a UCI compatible front end with more features than my dinky Swing GUI</figcaption>
+             </figure>
+             <p>
+             Like most college student programmers, on this project I tended to write everything from scratch. This was both because I wanted to learn everything I could and because I simply didn't appreciate what a timesaver it is to leverage other people's code.<br><br>
+             
+             Example: The entire front end of my chess app
+             
+             <br><br>
+             
+             Since I was programming in Java I had to learn Swing and I spent so many hours debugging Swing code and learning how to use Layout Managers and trying to understand why my pieces weren't moving around like I expected.  What a waste of time!  If I had made my engine UCI (Universal Chess Interface) compliant I could have leveraged the chess GUI's that are open source and plugged my engine into any of them.
+             
+             <br><br>
+             
+             This has other pay-offs like the ability to programmatically play my engine against other engines.  The top open source engine <a href="https://stockfishchess.org/">Stockfish</a> not only supports this but crowdsources the tuning of the engine by mutating its meta-parameters and playing millions of games with different strains of the engine against itself, all on the computers of the community!  The strain that wins the most game lives on and thus they are able to tune the engine exponentially faster than anyone could by hand.
+             
+             <br><br>
+             
+             Another item in my eventual rewrite is to make the engine UCI compatible so it can "play with other kids" and I can tune it faster as well.
+                 <br><br></p></section>
+             <u>Awesome resources I used on this project:</u>
             <br>
 <ul>
             <li>https://chessprogramming.wikispaces.com/</li>
