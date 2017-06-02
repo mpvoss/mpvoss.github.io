@@ -143,10 +143,11 @@ Great performance? Absolutely. Easy to read?  Oh heavens no.  That being said, I
             </center>
             <br>
              <section>
-             <figure style="float: left;">
-             <img class="img-rounded" src="images/Arena.png" class="img-responsive" width="50%" height="50%" alt="Matthew Voss"  >
-             <figcaption >Arena, a UCI compatible front end with more features than my dinky Swing GUI</figcaption>
-             </figure>
+             <table class="image" align="left" style="width: 50%; margin: 10px;">
+             <caption align="bottom" style="text-align: center">Arena, a UCI compatible front end with more features than my dinky Swing GUI</caption>
+                 <tr><td><img class="img-rounded" src="images/Arena.png" class="img-responsive" width="100%" height="48%" alt="Matthew Voss"  ></td></tr>
+             
+             </table>
              <p>
              Like most college student programmers, on this project I tended to write everything from scratch. This was both because I wanted to learn everything I could and because I simply didn't appreciate what a timesaver it is to leverage other people's code.<br><br>
              
@@ -163,7 +164,53 @@ Great performance? Absolutely. Easy to read?  Oh heavens no.  That being said, I
              <br><br>
              
              Another item in my eventual rewrite is to make the engine UCI compatible so it can "play with other kids" and I can tune it faster as well.
-                 <br><br></p></section>
+                 <br><br></p>
+                 
+                 
+             <br><br>
+            <center>
+               <h3>Actual chess AI notes</h3>
+            </center>
+            <br>     
+            <br>
+                 The biggest take-away I can give on actually programming a chess AI is that...
+                 <br>
+                 <blockquote>
+                 A Chess Artificial Intelligence knows absolutely nothing....that you don't teach it explicitly
+                 </blockquote>
+                 <br>
+                 What does that mean?  Let's walk through an example writing a chess AI to see.  I'm going to skip over writing all of the data structures/rule engines/UI because frankly it's extremely tedious and not the point of this write-up.
+                 
+                 <br><br>
+                 <b>Step one: Teach the AI to value powerful pieces.</b>  
+                 
+                 <br><br>
+                 Okay cool!  Now the AI loves to capture stuff.  Fair enough, it's usually a good strategy.  Although it really has no problems putting its pieces in terrible places (including the king!) if that means gnabbing a pawn.  Depending on if you've put together <a href="https://chessprogramming.wikispaces.com/Quiescence+Search">Quiescent Search</a> it might also leave itself in a really risky position after the capture.  More on that later.
+                 
+                 <br><br>
+                 
+                 Well drat.  I guess it doesn't know anything about playing positionally.  That is to say, usually you're better off if your pieces have more available moves than your opponent.  Let's add that feature to our algorithm to make it a little more balanced.
+                 
+                 <br><br>
+                 <b>Step two: Consider number of available moves in a position</b>
+                 <br><br>
+                 
+                 Now we are getting somewhere!  Our AI likes to capture pieces and also manuevers towards the middle of the board and open files when possible to maximise the number of available moves.  A good Alpha-Beta search will apply these heuristics to the opponent too, so we'll constrict their options wherever possible.  Even better!
+                 
+                 <br><br>
+                 The AI is still exibiting a lot of what we call "non-human moves".  This means that no one ever told it that capturing towards the middle of the board with your king in the opening of the game is risky...so the computer happily does it!  All it knows is that it took a piece and now its king has 3 extra squares it can move to.  Way better than being stuck on the back rank where he couldn't get anywhere, right?!
+                 <br><br>
+                 
+                 Well...not exactly.  An unprotected king can be easily harassed and that makes it hard to make progress.  Let's add another feature.
+                 <br><br>
+                 <b>Step three: Implement king safety bonuses, early castling bonuses</b>
+                 <br><br>
+                 Much better. Now the AI will castle in the opening when it can, and avoids disturbing his protective shield of pawns if you implemented it that way.
+                 <br><br>
+                 
+                 
+                 
+                 
              <u>Awesome resources I used on this project:</u>
             <br>
 <ul>
