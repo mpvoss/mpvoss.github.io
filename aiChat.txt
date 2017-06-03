@@ -1,11 +1,11 @@
-me:Okay, ready to test some of the stuff I taught you?
-ai:Yeah scrub let's do this!
-me:You remember to consider material and piece position, right?
-ai:Sure whatever come on I'm totally going to beat you this time!
-me:Whatever you say buddy. *plays a simple pawn opening, AI does the same, Matthew moves knight out*
-ai:*moves queen out along an open diagonal, straight towards the middle rank*
-ai:AWWW YEAH I CAN SEE THE WHOLE BOARD FROM HERE!!! You're so toast man I'm like totally winning in this position
-me:Ummm...it's like move 3.  You're not supposed to move your queen out early in chess...
-ai:Huh? IDK man I've got two heuristics right here and one of them says more available moves = super beast mode.
-ai:I think you just said that because you only have like 3 available moves. Get on my level puny human. 
-
+me:*captures pawn next to AI's king*
+ai:I ACCEPT YOUR SACRIFICE! *captures piece with its king*
+me:Umm that wasn't a sacrifice.  Now your king is exposed. You're not supposed to move your king-
+ai:What part of "I JUST TOOK YOUR PIECE" is confusing to you? Have some honor in defeat dude.
+me:Okay fine, have it your way. *checks AI's king with a bishop*
+ai:Ugh, annoying. 
+ai:*realizes he can capture another pawn closer to the middle of the board with his king*
+ai:SCOREEEEEEEEEEEEE *captures pawn*
+me:I SAID YOU'RE NOT SUPPOSED TO MOVE YOUR KING TO THE MIDDLE OF- oh forget it
+me:*checks AI's king again with a knight*
+ai:Sheesh I don't understand why this keeps happening.

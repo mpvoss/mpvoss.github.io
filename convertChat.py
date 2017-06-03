@@ -1,3 +1,4 @@
+import sys
 str1="<li class=\""
 #left or right
 str2=" clearfix\"><span class=\"chat-img pull-"
@@ -23,7 +24,7 @@ robotData=['left','images/robot.jpg','AI']
 
 output = ""
 last_time = 60
-with open('/tmp/aiChat.txt') as f:
+with open(sys.argv[1]) as f:
     content = f.readlines()
     content = [x.strip() for x in content]
     for line in content:
