@@ -10,7 +10,7 @@ var global_xCenter = -0.5;
 var global_yCenter = 0;
 var global_width = 5;
 var global_height = 3;
-var global_colorScale = 65;
+var global_colorScale = 360;
 
 //--------------------------------------------------------
 // Set Pixel function.  Allows us to set the pixel of an
@@ -86,6 +86,8 @@ function shiftColorScale(delta){
    if (global_colorScale < 0)
       global_colorScale = 360;
 	  
+    
+    console.log(global_colorScale)
    // Update front end  
    generateFractal(global_xCenter,global_yCenter,global_width,global_height);
 

@@ -28,7 +28,13 @@
         </style>
 
 
-       
+        <script>
+            var global_xCenter = -0.5;
+            var global_yCenter = 0;
+            var global_width = 5;
+            var global_height = 3;
+            var global_colorScale = 65;
+        </script>
 
         <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -94,16 +100,14 @@
 
                     <center>
 
-                        
-                       
-                    <div id="fractal"   >
-                    <canvas id="canvas"  height="450" width="750"></canvas>
+                      <div class="loader" id="loader" height="750" width="450"/>
+                    <div id="fractal">
+                    <canvas id="canvas" style="visibility: hidden" ></canvas>
                     <center>
-                         <div class="loader" id="loader" height="750" width="450" style=" position: absolute;top: 50%;left: 50%;transform:translateX(-50%)translateY(-50%);"></div>
                         <button onclick="initializeFractal()">Reset Fractal</button>
                         <button onclick="showControls()">Show Controls</button>
-                        <button onclick="shiftColorScale(-7)">Shift coloring down</button>
-                        <button onclick="shiftColorScale(7)">Shift coloring up</button>
+                        <button onclick="shiftColorScale(-15)">Shift coloring down</button>
+                        <button onclick="shiftColorScale(15)">Shift coloring up</button>
                     </center>
                         
                         </div>    
@@ -139,22 +143,16 @@
 
 
 
-                    <div class="w3-content w3-display-container" style="width: 75%">
-                        <center><img class="mySlides" src="images/FractalImage_3.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_9.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_5.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_6.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_7.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_11.png" style="width: 75%"></center>
-                        <div class="w3-center w3-display-bottommiddle" style="width:75%">
+                    <div class="w3-content w3-display-container">
+                        <img class="mySlides" src="images/FractalImage_3.png" style="width: 100%">
+                        <img class="mySlides" src="images/FractalImage_9.png" style="width: 100%">
+                        <img class="mySlides" src="images/FractalImage_5.png" style="width: 100%">
+                        <div class="w3-center w3-display-bottommiddle" style="width:100%">
                             <div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
                             <div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
                             <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
                             <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
                             <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(4)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(5)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(6)"></span>
                         </div>
                     </div>
 
@@ -210,10 +208,8 @@
                 initializeFractal();
                 $('#loader').css('visibility','hidden');
                 $('#fractal').css('visibility','visible');
-//                $('#fractal').css('height','450px')
-//                $('#fractal').css('width','60%')
-//                $('#canvas').css('height','450px')
-//                $('#canvas').css('width','60%')
+                $('#fractal').css('height','450')
+                $('#fractal').css('width','750')
                 
                 
                 
