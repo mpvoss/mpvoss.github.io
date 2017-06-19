@@ -29,34 +29,18 @@ function setPixel(imageData, x, y, r, g, b, a) {
 //--------------------------------------------------------
 function fractalZoom(event) {
 
-   var posx = 0;
-   var posy = 0;
-  
-   // Make sure our coordinates are in respect to the fractal,
-   // not just the window
-   if (!event) 
-      var event = window.event;
-   if (event.pageX || event.pageY)   {
-      posx = event.pageX;
-      posy = event.pageY;
-   }
-   else if (event.clientX || event.clientY)  {
-      posx = event.clientX + document.body.scrollLeft
-      + document.documentElement.scrollLeft;
-      posy = event.clientY + document.body.scrollTop
-      + document.documentElement.scrollTop;
-   }
-
    element = document.getElementById("canvas");
    var box = element.getBoundingClientRect();
   
-   // Now x and y hold the click location on the fractal
-   var x = posx - box.left;
-   var y = posy - box.top;
-
+   var x = event.clientX - box.left;
+   var y = event.clientY - box.top;
+    
    // Read the width and height of the canvas
    width = element.width;
    height = element.height;
+    
+    width = $("#canvas").outerWidth();
+    height = $("#canvas").outerHeight();
 
    // Ratio of where we clicked to the width/height
    var xRatio = x/width;
@@ -179,6 +163,8 @@ function generateFractal(centerX,centerY,width,height){
  canvas = element.getContext("2d");
  
 
+    
+    //console.write(centerX + " " + centerY + " " + width + " " + height);
    // Read the width and height of the canvas
    canvasWidth = element.width;
    canvasHeight = element.height;
@@ -206,7 +192,7 @@ function generateFractal(centerX,centerY,width,height){
             var x = 0.0;
             var y = 0.0;
             var iteration = 0;
-            var max_iteration = 1000;
+            var max_iteration = 500;
 
 			// See if the point is in the Mandelbrot set
             while (x * x + y * y < 2 * 2 && iteration < max_iteration) {
@@ -217,7 +203,7 @@ function generateFractal(centerX,centerY,width,height){
             }
 			
 			// Color mapping
-            var h = (iteration+360*global_colorScale/100)%360;
+            var h = (iteration+360* global_colorScale /100)%360;
             var s = 1;
             var v = 1;
             var colors= hsv_to_rgb(h,s,v);

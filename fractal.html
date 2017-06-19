@@ -21,14 +21,32 @@
         <script type="text/javascript" src="javascripts/bootstrap.js"></script>
         <script src="fractal.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <style>
-            .mySlides {display:none}
-            .w3-left, .w3-right, .w3-badge {cursor:pointer}
-            .w3-badge {height:13px;width:13px;padding:0}
-        </style>
+
+
+        <!-- Core CSS file -->
+        <link rel="stylesheet" href="stylesheets/photoswipe.css"> 
+
+        <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+In the folder of skin CSS file there are also:
+- .png and .svg icons sprite, 
+- preloader.gif (for browsers that do not support CSS animations) -->
+        <link rel="stylesheet" href="stylesheets/default-skin/default-skin.css"> 
+
+        <!-- Core JS file -->
+        <script src="javascripts/photoswipe.js"></script> 
+
+        <!-- UI JS file -->
+        <script src="javascripts/photoswipe-ui-default.min.js"></script> 
+
+        <link rel="stylesheet" href="stylesheets/fractal.css"> 
+         
+
 
 
        
+
+
+
 
         <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,138 +106,252 @@
 
                     I’m a sucker for art with high self similarity and detail/texture.  Fractal art has these things in abundance, so it wasn’t long after I started coding that I made a simple fractal explorer.  It let you zoom into interesting areas, save screenshots, adjust the color rendering etc.  
                     <br><br>
+
+                    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+                  <div class="container" style="magin: 0px auto; padding-left: 0px; padding-right: 0px;">
+   
+                    <div class="picture my-gallery" itemscope itemtype="http://schema.org/ImageGallery" style="width: 100%;">
+
+
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="images/FractalImage_9.png" itemprop="contentUrl" data-size="1000x750" data-index="0">
+                                <img src="images/FractalImage_9.png"  height="450" width="600" itemprop="thumbnail" alt="Beach">
+                            </a>
+                        </figure>
+
+
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="images/FractalImage_5.png" itemprop="contentUrl" data-size="1000x750" data-index="0">
+                                <img src="images/FractalImage_5.png"  height="450" width="600" itemprop="thumbnail" alt="Beach">
+                            </a>
+                        </figure>
+
+
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="images/FractalImage_6.png" itemprop="contentUrl" data-size="1000x750" data-index="0">
+                                <img src="images/FractalImage_6.png"  height="450" width="600" itemprop="thumbnail" alt="Beach">
+                            </a>
+                        </figure>
+
+
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="images/FractalImage_11.png" itemprop="contentUrl" data-size="1000x750" data-index="0">
+                                <img src="images/FractalImage_11.png"  height="450" width="600" itemprop="thumbnail" alt="Beach">
+                            </a>
+                        </figure>
+
+
+
+
+
+
+
+                  
+    </div>
+</div>
+
+
+
+                    <br><br>
                     Below is a similar project I coded up in JavaScript in college so I could put it on webpages.  Go ahead and click around, see if you can find some cool patterns!  (Hint, the program slows down if you have lots of the big black areas in the frame.  Because of the escape-time algorithm I’m using, you have to loop up to 1,000 for every pixel in the dark areas and clearly that can take a while)
 
                     <br><br>
 
                     <center>
 
-                        
-                       
-                    <div id="fractal"   >
-                    <canvas id="canvas"  height="450" width="750"></canvas>
-                    <center>
-                         <div class="loader" id="loader" height="750" width="450" style=" position: absolute;top: 50%;left: 50%;transform:translateX(-50%)translateY(-50%);"></div>
-                        <button onclick="initializeFractal()">Reset Fractal</button>
-                        <button onclick="showControls()">Show Controls</button>
-                        <button onclick="shiftColorScale(-7)">Shift coloring down</button>
-                        <button onclick="shiftColorScale(7)">Shift coloring up</button>
-                    </center>
-                        
+
+<div class="loader" id="loader"  ></div>
+                        <div id="fractal"  style="visibility: hidden">
+                            <canvas id="canvas"  height="450" width="750"  style="display: none"></canvas>
+                            <center>
+                                
+                                <button onclick="initializeFractal()">Reset Fractal</button>
+                                <button onclick="showControls()">Show Controls</button>
+                                <button onclick="shiftColorScale(-7)">Shift coloring down</button>
+                                <button onclick="shiftColorScale(7)">Shift coloring up</button>
+                            </center>
+
                         </div>    
 
-                      
-                        
-                        
-                        
-</center>
+
+
+
+
+                    </center>
                     <br>
-                    I really liked videos like <a href="https://youtu.be/0jGaio87u3A?t=15s">this</a> on Youtube where it would render a video of exploring cool parts of fractals.  After graduating college I redid the project in python with this feature so I could make similar videos.  Now that I would be rendering thousands of frames of fractals, however, I opted to learn some CUDA and offload the heavy lifting to my GPU.  This has massive performance gains, rendering a 1080 x 900 image with XXX specs takes YYYY seconds in pure Python, and ZZZZ seconds utilizing a GPU.  TODO FIX SPECS
-                    <br><br>
-                    The next challenge of course was turning all of those image frames into a video.  Usually I like to keep my projects platform independent, so when my research pointed to ffmpeg I got a little shy.  I chose instead to try OpenCV, which was a massive hassle.  While it is a very powerful and impressive tool, it was a massive overkill for what I was trying to do, and also took a fair amount of work and configuration to download and compile properly. 
-                    <br><br>
-                    I did get it working, though, and produced some nice videos like this: TODO ADD GIF
-                    <br><br>
-                    They’re still a little choppy, though.  Not to mention the coloring is very basic escape-time stuff. This leads to very discrete bands in the color instead of the nice color gradients like you see here TODO LINK HERE.
-                    <br><br>
-                    In order to implement that nice gradient coloring, usually people take this approach BLAH BLAH BLAH BLAH.
-                    <br><br>
-                    Tech used:
-                    <ul><li>Python</li>
-                        <li>Pycuda</li>
-                        <li>OpenCV</li>
-                        <li>CudaToolKit</li>
-                    </ul>
+                    I really liked videos like <a href="https://youtu.be/0jGaio87u3A?t=15s">this</a> on Youtube where it would render a video of exploring cool parts of fractals.  After graduating college I redid the project in python with this feature so I could make similar videos.  
 
                     <br><br>
-<!--                    <center><img class="img-rounded" src="images/output_bak.gif" class="img-responsive" width="50%" height="50%" alt="fractal"></center><br>-->
+                    Enter scalability challenges.  Instead of rendering one image at a time I now needed 60 images per second of video for a 60 FPS video.  And I wanted more than a few seconds of footage!  Now that I would be rendering thousands of frames of fractals, however, I opted  to learn some CUDA and offload the heavy lifting to my GPU.  This has massive performance gains, since GPU's are designed for crunching floating point calculations quickly.
+                    <br><br>
+                    The next challenge of course was turning all of those image frames into a video.  Usually I like to keep my projects platform independent, so when my research pointed to the linux utility ffmpeg I got a little shy.  I chose instead to play with OpenCV, which was frankly massive overkill for what I needed.  While it is a very powerful and impressive tool, and also took a fair amount of work and configuration to download and compile properly. 
+                    <br><br>
+                    I did get it working, though, and produced some nice videos like this: 
+                    <br><br>
+                    
+                    <center><img class="img-rounded gif" src="images/output_bak.gif" class="img-responsive" width="50%" height="50%" alt="fractal"></center><br>
 
-                    Here's some other cool images I've made with my own fractal programs:<br><br>
+                    <br><br>
+                    They’re still a little choppy, though.  Not to mention the coloring is very basic escape-time stuff. This leads to very discrete bands in the color instead of the nice color gradients.  You can see the contrast in these example pictures from the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia Mandelbrot article</a> below.
+                    <br><br>
+                    <center>
+                        
+                        
 
+                        
+                         <figure style="margin: 10px">
+                        
+                        <img class="img-rounded" src="images/bandFractal.png" class="img-responsive" width="50%" height="50%" alt="fractal">
+<figcaption style="text-align: center; margin-top: 10px;"><i>Fractal colored with escape time algorithm, which produces bands of colors.</i></figcaption>
+                    </figure>
 
+                        
+                                                 <figure style="margin: 10px">
+                        
+                        <img class="img-rounded" src="images/smoothFractal.png" class="img-responsive" width="50%" height="50%" alt="fractal">
+                        <figcaption style="text-align: center; margin-top: 10px;"><i>Fractal colored with a continuous smoothing pattern.</i></figcaption>
+                    </figure>
+                        
+                        
+                        
+                        
+                        <br><br>
+                          </center><br>
+                        
+                        Future improvements on this project could include 
+                        
+                        <ul>
+                            <li>Introducing concurrency for faster fractal rendering (every frame of the video can be processed independently. Every pixel of every frame can also be rendered separately, for that matter!)</li>
+                            <li>More sophisticated color mapping.  My knowledge of coloring and what looks good is novice at best.  I'm also red-green color blind, so that doesn't help.  Doing a little research and using defaults/translations that more color-savvy people have found would make for much nicer images.</li>
+                            
+                        </ul>
+                        
 
-
-                    <div class="w3-content w3-display-container" style="width: 75%">
-                        <center><img class="mySlides" src="images/FractalImage_3.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_9.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_5.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_6.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_7.png" style="width: 75%">
-                        <img class="mySlides" src="images/FractalImage_11.png" style="width: 75%"></center>
-                        <div class="w3-center w3-display-bottommiddle" style="width:75%">
-                            <div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
-                            <div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(4)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(5)"></span>
-                            <span class="w3-badge demo w3-border" onclick="currentDiv(6)"></span>
-                        </div>
-                    </div>
-
-
-                    <script>
-                        var slideIndex = 1;
-                        showDivs(slideIndex);
-
-                        function plusDivs(n) {
-                            showDivs(slideIndex += n);
-                        }
-
-                        function currentDiv(n) {
-                            showDivs(slideIndex = n);
-                        }
-
-                        function showDivs(n) {
-                            var i;
-                            var x = document.getElementsByClassName("mySlides");
-                            var dots = document.getElementsByClassName("demo");
-                            if (n > x.length) {slideIndex = 1}    
-                            if (n < 1) {slideIndex = x.length}
-                            for (i = 0; i < x.length; i++) {
-                                x[i].style.display = "none";  
-                            }
-                            for (i = 0; i < dots.length; i++) {
-                                dots[i].className = dots[i].className.replace(" w3-white", "");
-                            }
-                            x[slideIndex-1].style.display = "block";  
-                            dots[slideIndex-1].className += " w3-white";
-                        }
-                    </script>      
+                  
                     
 
-                    </div>
-
-
-
-
-
-
-
+                    
+                    <br><br>
                 </div>
             </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+           <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="pswp__bg"></div>
+                        <div class="pswp__scroll-wrap">
+
+                            <div class="pswp__container">
+                                <div class="pswp__item"></div>
+                                <div class="pswp__item"></div>
+                                <div class="pswp__item"></div>
+                            </div>
+
+                            <div class="pswp__ui pswp__ui--hidden">
+                                <div class="pswp__top-bar">
+                                    <div class="pswp__counter"></div>
+                                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                                    <div class="pswp__preloader">
+                                        <div class="pswp__preloader__icn">
+                                            <div class="pswp__preloader__cut">
+                                                <div class="pswp__preloader__donut"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                                    <div class="pswp__share-tooltip"></div> 
+                                </div>
+                                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                                </button>
+                                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                                </button>
+                                <div class="pswp__caption">
+                                    <div class="pswp__caption__center"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+    </body>
+    <script>
 
 
-            </body>
-        <script>
-            
-            $( document ).ready(function() {
+
+        (function($) {
+            var $pswp = $('.pswp')[0];
+            var image = [];
+
+            $('.picture').each( function() {
+                var $pic     = $(this),
+                    getItems = function() {
+                        var items = [];
+                        $pic.find('a').each(function() {
+                            var $href   = $(this).attr('href'),
+                                $size   = $(this).data('size').split('x'),
+                                $width  = $size[0],
+                                $height = $size[1];
+
+                            var item = {
+                                src : $href,
+                                w   : $width,
+                                h   : $height
+                            }
+
+                            items.push(item);
+                        });
+                        return items;
+                    }
+
+                var items = getItems();
+
+                $.each(items, function(index, value) {
+                    image[index]     = new Image();
+                    image[index].src = value['src'];
+                });
+
+                $pic.on('click', 'figure', function(event) {
+                    event.preventDefault();
+
+                    var $index = $(this).index();
+                    var options = {
+                        index: $index,
+                        bgOpacity: 0.7,
+                        showHideOpacity: true
+                    }
+
+                    var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+                    lightBox.init();
+                });
+            });
+        })(jQuery);
+
+        
+        
+        
+   // Load fractal     
+        
+                   $( document ).ready(function() {
     
                 
                 initializeFractal();
-                $('#loader').css('visibility','hidden');
+                $('#loader').css('display','none');
                 $('#fractal').css('visibility','visible');
-//                $('#fractal').css('height','450px')
-//                $('#fractal').css('width','60%')
-//                $('#canvas').css('height','450px')
-//                $('#canvas').css('width','60%')
+                       $('#canvas').css('display','initial');
+                     
                 
                 
                 
                 
 });
-            
-            </script>
-        </html>
+    </script>
+</html>
 

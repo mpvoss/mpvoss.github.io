@@ -1,0 +1,33 @@
+            .mySlides {display:none}
+            .w3-left, .w3-right, .w3-badge {cursor:pointer}
+            .w3-badge {height:13px;width:13px;padding:0}
+            
+            .my-gallery {
+  width: 100%;
+  
+}
+.my-gallery img {
+  width: 100%;
+  height: auto;
+}
+.my-gallery figure {
+  display: block;
+  float: left;
+  margin: 0 0 0 0 auto;
+  width: 300px;
+}
+.my-gallery figcaption {
+  display: none;
+}
+           
+
+@media  (max-width: 766px) {
+
+#canvas{
+  width: 100%;
+}
+    
+     img{
+        width: 100% !important;
+    }
+}
