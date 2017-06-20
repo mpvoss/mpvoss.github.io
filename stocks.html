@@ -15,6 +15,10 @@
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+       
+       
+      
+       
       <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
@@ -60,38 +64,188 @@
                </center>
                <center>Losing money in the stock market, automated</center>
                <br>
-               Projects like trying to “solve” the market are fun because there’s a lot of data/literature out there already, the technical challenges are very interesting, and there’s always the 0.00000000001% chance that if you succeed you can get super mega rich.  It’s for these reasons that I tried my hand at writing a stock market AI a while back.
+                <div class="container" style="margin: 0px">
+                    
+                    
+                <div class="row">
+                    
+                    <div class="col-sm-8">
+             
+             Projects like trying to “solve” the market are fun because there’s a lot of data/literature out there already, the technical challenges are very interesting, and there’s always the 0.00000000001% chance that if you succeed you can get super mega rich.  It’s for these reasons that I tried my hand at writing a stock market AI a while back.<br><br>
                The goal?  Develop heuristics or some kind of training model that could make money in a simulated environment.  I chose Python for this project because it’s fun to use and I wanted more experience with it. <br><br>
-               More quantitatively, I wanted to see at least an 8% ROI on average.  You can usually get that with a low cost index fund so any other approach that’s more effort should earn at least that.<br>
+               More quantitatively, I wanted to see at least an 8% ROI on average.  You can usually get that with a low cost index fund so any other approach that’s more effort should earn at least that.<br><br>
+                    </div>
+                    <div class="col-sm-4">
+                <figure style="margin: 0px">
+                        <img src="images/colors.png" style="width: 100%" alt="My first chess engine" s>
+                        <figcaption style="text-align: center; margin-top: 10px"><i>Genetic algorithms like this pathfinder try random things until something works...if they know what works.  This one I made in college actually tried to find the longest route between two points instead of the shortest. Oops.</i></figcaption>
+                    </figure>
+                </div>
+                    </div>
+                    </div>
+                
                <center>
-                  <h3>Attempt #1: Genetic Algorithm (basic)</h3>
+                  <h3>Genetic Algorithms</h3>
                </center>
-               This attempt was mostly to develop a framework for getting the data I needed and running models against training data.  <br><br>
-               Genetic algorithms simulate evolution by breaking solutions to a problem into "genomes" that you can mutate and combine with other genomes.  You then measure the "fitness" (or how good the solution is) and let fit genomes spread among your populations while the weak solutions are removed.
+               As I was setting up the framework for getting data and buy/sell models, I started with a quick genetic algorithm to train my AI.
+                <br><br>
+               Genetic algorithms simulate evolution by breaking solutions to a problem into "genomes" that you can mutate and combine with other genomes.  Good solutions or "genomes" spread among your sample population while the weak solutions are removed.
                <br><br>
                Genetic algorithms are often a good fit for problems with massive solution spaces that can't be searched exhaustively.  This is because their random mutations can stumble onto great answers that you couldn't have found iteratively.  As such, it seemed like a good fit for this problem<br><br> 
-               <br>TODO: Build diagram
-               <center>
-                  <h3>Data acquisition</h3>
-               </center>
-               I used the PandasDatareader library for downloading stock prices from the Yahoo Finance API.  This was very fast and easy and I saved off the fields I needed to a local postgres database so I didn’t need to wait on data downloads for every test.
-               <br><br>
-               While my goal was to randomly pick 18 months of data for the AI to train on, then validate it against the next 12 months of data, my random timeframes overlapped with the various financial crises surprisingly often.  For this reason I mostly used the 2009 - 2015 time frame to get a stable framework and then widened it up a bit.  I figured most of Wall Street was bested by the 2008 housing bubble and the 2000 dot com bust, it was okay if my little python project got hosed by them as well. <br><br>
-               I took random samples from the S&P 500, kindly provided <a href="https://github.com/datasets/s-and-p-500-companies">here</a>.
-               <center>
+               
+                
+                <center>
                   <h3>AI Model</h3>
                </center>
-               My first heuristic was quite basic.  Each agent in my population had
+               My first heuristics were quite basic.  Each agent in my population had
                <ul>
                   <li> buyThreshold: The percentage increase over the mean of the training data that was needed before the agent would buy the stock.  This was a conservative approach that was mostly hoping to milk the natural ebs and wanes of the market.</li>
                   <li>maxLoss: the most a stock price can drop below the buy-in point before an agent would sell the stock and bail out.</li>
                   <li>desiredProfit: How much the AI wants to make before it sells a stock.</li>
                </ul>
+                
+                 <center><h3>Challenge 1: Overfitting</h3></center>
+                 
+                
+                <center>
+                 <figure style="width: 75%; margin: 10px">
+                        <img src="images/overfit.png" alt="My first chess engine" style=" width: 100%; height: 100%; margin: 4px">
+                        <figcaption style="text-align: center"><i>Observe the evolution of the perfect stock trading AI....for trading EQIX stock in 2001</i></figcaption>
+                    </figure>
+                </center>
+                
+                
+                Anyone who has trained an AI can sympathize with the pains of overfitting. This is the situation where your AI teaches itself and improves just like it is supposed to, but it learns to excel in the very specific case where it is trained instead of the general case where you want it to perform.  
+                <br><br>
+                I used one timeframe for AI training and another for validation so I avoided this problem for the most part, but there were still some funny outputs, such as the one screen-captured above. As you can see from the output below the AI quickly trained itself to buy all the stocks available but it only every bothered to sell one of them, and the increase in profitability was it basically just fine-tuning when to sell EQIX.
+                
+                <pre><code>Stock data used in this experiment                       
+[AJG  ] Optimal:   0.18
+[BAX  ] Optimal:   0.22
+[BLL  ] Optimal:   0.47
+[CI   ] Optimal:   0.89
+[EFX  ] Optimal:   0.23
+[EQIX ] Optimal: 174.61
+[ETN  ] Optimal:   0.58
+[EXPD ] Optimal:   0.71
+[IRM  ] Optimal:   0.52
+[JWN  ] Optimal:   1.45
+[LB   ] Optimal:   1.05
+[NTRS ] Optimal:   0.45
+[NUE  ] Optimal:   1.31
+[PEP  ] Optimal:   0.32
+[PRU  ] Optimal:   0.54
+[RAI  ] Optimal:   0.85
+[SRE  ] Optimal:   0.64
+[WFC  ] Optimal:   0.34
+Training time period used: January 2001 to December 2004
+Gen 1 score: 47.4595647328, Last gen score: 198.285651689
+score:198.286, total:18, profitable:18, bought:18, sold:1, maxLoss:-33.160%, desiredProfit:170.638%, buyThreshold:-6.713%</code></pre>         
+                <br><br>
+                
+                <center><h3>Exploration vs Exploitation</h3></center>
+                
+                
+                It's good for early AI strains to mutate wildly to help discover promising parameter combinations.  As effective members of the population are evolved, however, it's preferable to tune or "exploit" what it's learned rather than drastically re-write their make-up.  
+                <br><br>
+                This is where exponential mutation fall off is handy.  As my simulation moves from the 1st iteration towards the nth, I use a factor of 
+                <br>
+                
+                <center><img src="images/formula.gif" /></center>
+                <br><br>
+                to decay the evolution rate (where x is the ratio of current generation to max generation). This allows for fine tuning of the evolved species, as it's likely that drastic mutations would destroy the value of the partially tuned parameters they already have.<br><br>
+                I also tried a linear fall-off but this lead to exploration being too tame too early.  The strains didn't have enough time to find a good solution and then we were just fine tuning bad solutions.  Exponential had much better results.
+                
+                
+                <div class="container" style="margin: 0px">
+                    
+                    
+                <div class="row">
+                    
+                    <div class="col-sm-6">
+                         <figure width="50%" style="float: left">
+                        
+                        <img class="img-rounded"  width="100%" src="images/flat.png" class="img-responsive"  alt="fractal">
+<figcaption style="text-align: center;"><i>AI with no mutation decay. Every generation is essentially random, no chance to improve on parent solution</i></figcaption>
+                    </figure>
+
+                    </div><div class="col-sm-6">
+                                                 <figure width="50%" style="float: right">
+                        
+                        <img class="img-rounded" width="100%" src="images/gradualImprovement.png" class="img-responsive"  alt="fractal">
+                        <figcaption style="text-align: center; "><i>Exponential decay lessens the impact of mutations and allows for fine-tuning</i></figcaption>
+                    </figure>
+               
+                    </div></div></div>
+                
+                
+                
+                <center>
+                  <h3>Challenge 1: Data Acquisition</h3>
+               </center>
+               <b>Tech used:</b>
+                <ul>
+                <li>Python Pandas Datareader: Used to download stock data via Yahoo Finance API</li>
+                    <li>SQLAlchemy: Python SQL mapper to write my stock data to postgres so I could do testing without waiting on a download</li>
+                    <li>Postgres: Local "cache" of stock data</li>
+                </ul>
+            
+               
+                Random timeframes for testing didn't work because WallStreet crashes frightfully often.  I threw out timeframes that included the 2000 dot com bust or 2008 housing bubble.  If the Wallstreet hedge fund geniuses couldn't predict it then I don't expect my dinky little AI to do so.<br><br>
+               I took random samples from the S&P 500, kindly provided <a href="https://github.com/datasets/s-and-p-500-companies">here</a>.
+                <br><br>
+                
+                
+                
+                 <center>
+                  <h3>Challenge 2: Visualizing Results</h3>
+               </center>
+                
+                With fancy JS libraries like D3/Bootstrap available I often like to let my applications churn out csv files and then write separate html files that read the csv files.  This way I can get nice visualizations in a web browser instead of coding too much in-house. For this project I saved off the best specimen of each generation to a csv so I could see the progress of my best strains over the course of the simulation. Here's an example:
+                
+                
+                
+                
+                
+              
+                 
+                
+                
+                
+                
+                
+                
+              
+                
+                <b> TODO: EXAMPLE!!!!!</b>
+                
+                
+               
+               
                <br><br>
                Now all that's left is to randomize a population and let it discover the next best stock strategy!  The main loop for the simulation is thus:
                <center>
                   <h3>DO SOMETHING ALREADY</h3>
                </center>
+                
+                
+                <center>
+                 <figure style="width: 75%; margin: 10px">
+                        <img src="images/stock_plateau.png" alt="My first chess engine" style=" width: 100%; height: 100%; margin: 4px">
+                        <figcaption style="text-align: center"><i>Early exploration did well but after 20 or so generations no superior strains evolved.</i></figcaption>
+                    </figure>
+                </center>
+                
+                
+                
+                
+                <center>
+                 <figure style="width: 75%; margin: 10px">
+                        <img src="images/example_with_sample_output_stock.png" alt="My first chess engine" style=" width: 100%; height: 100%; margin: 4px">
+                        <figcaption style="text-align: center"><i>Early exploration did well but after 20 or so generations no superior strains evolved.</i></figcaption>
+                    </figure>
+                </center>
+                    
                As is usually the case with Genetic Algorithms, one of my biggest issues was tuning the heuristic and mutation parameters.  Either there wasn’t enough exploration and nothing ever evolved that was more fit than the initial batch or it explored too wildly and never refined itself into good matches.
                <br><br>
                Clearly this model wasn’t really getting me anywhere interesting.  Time to upgrade my basic 3-parameter model.
@@ -127,6 +281,85 @@
                   </div>
                </div>
 
+                
+                
+                
+                
+                <h3>Sample output</h3>
+                <code>
+
+<br>----------------------------------Generation 0----------------------------------
+<br>AI parameters: maxLoss[-0.223%] desiredProfit[11.744%] buyThreshold[-5.000%]
+<br>   19 stocks purchased, average return: 12.907%
+<br>AI parameters: maxLoss[-1.941%] desiredProfit[4.916%] buyThreshold[-4.924%]
+<br>   19 stocks purchased, average return: 12.764%
+<br>----------------------------------Generation 1----------------------------------
+<br>AI parameters: maxLoss[-5.218%] desiredProfit[2.252%] buyThreshold[-8.922%]
+<br>   19 stocks purchased, average return: 13.156%
+<br>AI parameters: maxLoss[-0.223%] desiredProfit[11.744%] buyThreshold[-5.000%]
+<br>   19 stocks purchased, average return: 12.907%
+<br>----------------------------------Generation 2----------------------------------
+<br>AI parameters: maxLoss[-5.218%] desiredProfit[2.252%] buyThreshold[-8.922%]
+<br>   19 stocks purchased, average return: 13.156%
+<br>AI parameters: maxLoss[-4.824%] desiredProfit[2.252%] buyThreshold[-3.891%]
+<br>   19 stocks purchased, average return: 13.156%                
+                    
+                    
+                    
+            <br>.....        
+<br>---------------------------------Generation 247---------------------------------
+<br>AI parameters: maxLoss[-0.203%] desiredProfit[3.823%] buyThreshold[-31.285%]
+<br>   19 stocks purchased, average return: 14.902%
+<br>AI parameters: maxLoss[-0.203%] desiredProfit[3.823%] buyThreshold[-18.310%]
+<br>   19 stocks purchased, average return: 14.902%
+<br>---------------------------------Generation 248---------------------------------
+<br>AI parameters: maxLoss[-0.203%] desiredProfit[3.823%] buyThreshold[-18.310%]
+<br>   19 stocks purchased, average return: 14.902%
+<br>AI parameters: maxLoss[-0.203%] desiredProfit[3.823%] buyThreshold[-31.285%]
+<br>   19 stocks purchased, average return: 14.902%
+<br>---------------------------------Generation 249---------------------------------
+<br>AI parameters: maxLoss[-0.203%] desiredProfit[3.823%] buyThreshold[-31.285%]
+<br>   19 stocks purchased, average return: 14.902%
+<br>AI parameters: maxLoss[-0.203%] desiredProfit[3.823%] buyThreshold[-27.907%]
+<br>   19 stocks purchased, average return: 14.902%
+<br>Training time period used: July 2001 to June 2005
+<br>Gen 1 score: 12.764083748, Last gen score: 14.9022442532
+<br>
+<br>
+<br>Stock data used in this experiment                       
+<br>[AMT  ] Optimal:   1.17
+<br>[CERN ] Optimal:   1.89
+<br>[CHD  ] Optimal:   0.46
+<br>[CME  ] Optimal:   1.71
+<br>[DO   ] Optimal:   1.59
+<br>[EL   ] Optimal:   0.46
+<br>[FL   ] Optimal:   1.23
+<br>[GPN  ] Optimal:   0.99
+<br>[JCI  ] Optimal:   0.92
+<br>[KO   ] Optimal:   0.14
+<br>[MAS  ] Optimal:   0.59
+<br>[MCD  ] Optimal:   0.55
+<br>[MDT  ] Optimal:   0.14
+<br>[MOS  ] Optimal:   1.73
+<br>[MRK  ] Optimal:   0.02
+<br>[PFE  ] Optimal:   0.14
+<br>[SWN  ] Optimal:   3.83
+<br>[TYC  ] Optimal:   0.92
+<br>[XL   ] Optimal:   0.01
+<br>Optimal return: 97.3185732031
+                </code>   
+                <br><br>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 <br><br> <center>
                   <h3>Further experimentation</h3>
                </center>
