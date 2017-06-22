@@ -72,7 +72,7 @@
             <div class="inner clearfix">
                 <div class="main-content">
                     <center>
-                        <h2>Articial Intelligence and Chess</h2>
+                        <h2>Artificial Intelligence and Chess</h2>
                     </center>
                     <br>
 
@@ -88,10 +88,10 @@
                     <br><br>
                     Being the ambitious sort, I decided I wanted to write a chess engine because I was learning Java.  I always learn a new language or framework best with a project and at the time it made sense to combine a game I liked with a new programming project.  Of course when you consider the massive complexity of some open source chess engines (and the entire online communities it takes to develop them) you can see why this was no small task.
                     <br><br>
-                    Being new to Java and chess programming in general I learned a lot and re-wrote the engine several times before coming up with anything resmbling an intelligent chess player.  
+                    Being new to Java and chess programming in general I learned a lot and re-wrote the engine several times before coming up with anything resembling an intelligent chess player.  
                     <br><br>
                     That being said, I am rather proud of the engine I made.  It beat me pretty consistently and my ELO rating was around 1400 at the time.  It can also beat my friends kind enough to test it for me and the Windows chess engine Chess Titan.  Unfortunately it would still make strange mistakes now and then due to heuristic tuning errors. Example: compromising on king safety for a pawn grab.<br><br>
-                    Even so it was a terrificly fun project.  Watching the AI learn chess strategy and make increasingly intelligent moves was incredible.  Eventually it started punishing my own mistakes pretty severely, and I have to play pretty carefully to beat it.
+                    Even so it was a terrifically fun project.  Watching the AI learn chess strategy and make increasingly intelligent moves was incredible.  Eventually it started punishing my own mistakes pretty severely, and I have to play pretty carefully to beat it.
                     <br><br>
 
                     The source code for the project is on GitHub: <a href="https://github.com/mpvoss/Chess">https://github.com/mpvoss/Chess</a><br><br>
@@ -186,7 +186,7 @@
                     <b>Step two: Consider number of available moves in a position</b>
                     <br><br>
 
-                    Now we are getting somewhere!  Our AI likes to capture pieces and also manuevers towards the middle of the board and open files when possible to maximise the number of available moves.  A good Alpha-Beta search will apply these heuristics to the opponent too, so we'll constrict their options wherever possible.  Even better!
+                    Now we are getting somewhere!  Our AI likes to capture pieces and also manoeuvres towards the middle of the board and open files when possible to maximize the number of available moves.  A good Alpha-Beta search will apply these heuristics to the opponent too, so we'll constrict their options wherever possible.  Even better!
                     <br><br>
                     Except for....balancing concerns.  Now that we have two heuristics we have to weight them relative to each other.  Clearly material should be weighted more (even if you can move to many squares that doesn't do you good if you lost most of your pieces to achieve that), but by how much?  This is the most fun and painful part of coding a chess engine, in my opinion.  You get to see the AI use all the heuristics you just taught it, but it takes a while before it uses them in a balanced way.  I usually think of these as an interaction between programmer and AI so that's how I'll illustrate what I mean.
 
@@ -262,7 +262,7 @@
 
 
                     <br><br>
-                    The AI is still exibiting a lot of what we call "non-human moves".  For example, no one ever told the AI that capturing towards the middle of the board with your king in the opening of the game is risky...so the computer happily does it!  All it knows is that it took a piece and now its king has 3 extra squares it can move to.  Way better than being stuck on the back rank where he couldn't get anywhere, right?!
+                    The AI is still exhibiting a lot of what we call "non-human moves".  For example, no one ever told the AI that capturing towards the middle of the board with your king in the opening of the game is risky...so the computer happily does it!  All it knows is that it took a piece and now its king has 3 extra squares it can move to.  Way better than being stuck on the back rank where he couldn't get anywhere, right?!
                     <br><br>
 
                     Well...not exactly.  An unprotected king can be easily harassed and that makes it hard to make progress.  Let's add another feature.
@@ -301,7 +301,7 @@
                         <h3>Readability vs performance</h3>
                     </center>
                     <br>
-                    Since I was learning Java I designed the engine in a very Object Oreinted way.  I had a class for Pieces, Moves, etc.  The game tree was a graph of moves, and to explore the board you had to make and unmake moves on a global board object (I was new to coding, I admit the design was horrendous).  This made for mostly easy to read code, but it’s simply not how the top engines represent the game.
+                    Since I was learning Java I designed the engine in a very Object Oriented way.  I had a class for Pieces, Moves, etc.  The game tree was a graph of moves, and to explore the board you had to make and unmake moves on a global board object (I was new to coding, I admit the design was horrendous).  This made for mostly easy to read code, but it’s simply not how the top engines represent the game.
                     <br><br>
                     Most self-respecting engines use <a href="https://en.wikipedia.org/wiki/Bitboard">bitboards</a> to represent the board.  This is a 64 bit datatype (usually a long) that represent if a piece is on a square or not.  You can have a white bishop bitboard, a black rook bitboard, etc.  Each bit of the 64 is associated with a square on the board, and you can combine all the bitboards to see the entire position.  The reason this is fast is because modern CPU’s use 64 bit registers, and when your entire board can be manipulated using bit shifting instructions on the CPU you can crunch positions insanely quickly.
                     <br><br>
