@@ -79,7 +79,7 @@
 
                     <figure style="float: left; width: 50%; margin: 10px">
                         <img src="images/chess.png" alt="My first chess engine" style=" width: 100%; height: 100%; margin: 4px">
-                        <figcaption style="text-align: center"><i>Arena, a UCI-compatible front-end with way more features than my dinky Swing GUI</i></figcaption>
+                        <figcaption style="text-align: center"><i>Quiet Intrigue, my Java chess engine. Approximate ELO rating: 1500</i></figcaption>
                     </figure>
 
 
@@ -118,7 +118,8 @@
                     <b>Step one: Teach the AI to value powerful pieces.</b>  
 
                     <br><br>
-                    You can't win if you don't have any pieces.  This is a good start - now the AI loves to capture stuff. Although it really has no problems putting its pieces in terrible places (including the king!) if that means winning a pawn.  Depending on if you've put together <a href="https://chessprogramming.wikispaces.com/Quiescence+Search">Quiescent Search</a> it might also leave itself in a really risky position after the capture.  More on that later.
+                    You can't win if you don't have any pieces.  This is a good start - now the AI loves to capture stuff. Although it really has no problems putting its pieces in terrible places (including the king!) if that means winning a pawn.  Depending on if you've put together <a href="https://chessprogramming.wikispaces.com/Quiescence+Search">Quiescent Search</a> it might also leave itself in a really risky position after the capture.  <br><br>
+                    I usually think of this tweaking process (update AI settings, play against AI to test, observe AI moves) as an interaction between programmer and AI so that's how I'll illustrate what I mean:
 
                     <br><br>
 
@@ -180,7 +181,8 @@
 
 
 
-                    Well drat.  I guess it doesn't know anything about playing positionally.  That is to say, usually you're better off if your pieces have more available moves than your opponent.  Let's add that feature to our algorithm to make it a little more balanced.
+                    Well drat.  I guess it doesn't know anything about playing positionally.  That is to say, usually you're better off if your pieces have more available moves than your opponent.  A side effect of this is that you usually have very few moves when you're in check, so it can help prevent King exposure somewhat.<br><br>
+                    Let's add that feature to our algorithm to make it a little more balanced.
 
                     <br><br>
                     <b>Step two: Consider number of available moves in a position</b>
@@ -188,7 +190,7 @@
 
                     Now we are getting somewhere!  Our AI likes to capture pieces and also manoeuvres towards the middle of the board and open files when possible to maximize the number of available moves.  A good Alpha-Beta search will apply these heuristics to the opponent too, so we'll constrict their options wherever possible.  Even better!
                     <br><br>
-                    Except for....balancing concerns.  Now that we have two heuristics we have to weight them relative to each other.  Clearly material should be weighted more (even if you can move to many squares that doesn't do you good if you lost most of your pieces to achieve that), but by how much?  This is the most fun and painful part of coding a chess engine, in my opinion.  You get to see the AI use all the heuristics you just taught it, but it takes a while before it uses them in a balanced way.  I usually think of these as an interaction between programmer and AI so that's how I'll illustrate what I mean.
+                    Except for....balancing concerns.  Now that we have two heuristics we have to weight them relative to each other.  Clearly material should be weighted more (even if you can move to many squares that doesn't do you good if you lost most of your pieces to achieve that), but by how much?  This is the most fun and painful part of coding a chess engine, in my opinion.  You get to see the AI use all the heuristics you just taught it, but it takes a while before it uses them in a balanced way.  
 
                     <br><br>
 
@@ -269,21 +271,16 @@
                     <br><br>
                     <b>Step three: Implement king safety bonuses, early castling bonuses</b>
                     <br><br>
-                    Much better. Now the AI will castle in the opening when it can, and avoids disturbing his protective shield of pawns if you implemented it that way.
+                    Much better. Now the AI will castle in the opening when it can, and avoids disturbing his protective shield of pawns if you implemented it that way. Bonuses for good behaviours like these and penalties for unwise moves (moving the queen early, doubling pawns, etc) can help us tine tune the play style of the AI.  <br><br>
+                    
+                    This both creates a more well-rounded engine and creates a mountain of new balancing problems.  Yes it's good to castle early, but would you rather capture a pawn or castle? Would you rather open up more available moves or keep your queen on the home square?  Even for the basic material heuristic, exactly how much more is a queen worth than a knight? All of these are knobs we can turn slightly and get totally different engine behaviour.  It's a deep rabbit hole but with some of the automated training I'll discuss later we can let the AI find the best parameters instead of us.
+                    
+                 
                     <br><br>
-
-
-
-
-
-
-
-                    Here’s what I learned on this journey:
-                    <br><br><br><br>
                     <center>
                         <h3>Space-time tradeoff</h3>
                     </center>
-                    Since I knew I’d be visiting the same positions many times over my search, it seemed wasteful to re-explore these branches of the game tree many times. 
+                    Now that we know how to evaluate positions, how can we evaluate the millions and billions of positions that are available?  Let's talk about scaling the engine up.<br><br>Since I knew I’d be visiting the same positions many times over my search, it seemed wasteful to re-explore these branches of the game tree many times. 
                     <br><br>
                     I was correct about this.
                     <br><br>
@@ -295,7 +292,7 @@
                     <br><br>
                     The better approach is using a hashtable to store good moves as you find them.  This has huge savings because it’s very common to see the same positions many times over the course of your search.  Usually a specialized hashtable called a <a href="https://chessprogramming.wikispaces.com/Transposition+Table">Transposition Table</a> is used and there’s plenty of business logic about when you can remove a position from the table and how you handle collisions and whatnot. 
                     <br><br>
-                    With a transposition table my engine would be able to look much deeper than the pitiful 4 or 5 ply I was doing before.  This would make a huge difference with the strength of the engine, and it's on my TODO list if I ever rewrite the engine for the umpteenth time.
+                    With a transposition table my engine would be able to look much deeper than the pitiful 4 or 5 ply I was doing before (the strongest engines have no problem looking 20 or more ply deep).  This would make a huge difference with the strength of the engine, and it's on my TODO list if I ever rewrite the engine for the umpteenth time.
                     <br><br>
                     <center>
                         <h3>Readability vs performance</h3>
@@ -305,7 +302,9 @@
                     <br><br>
                     Most self-respecting engines use <a href="https://en.wikipedia.org/wiki/Bitboard">bitboards</a> to represent the board.  This is a 64 bit datatype (usually a long) that represent if a piece is on a square or not.  You can have a white bishop bitboard, a black rook bitboard, etc.  Each bit of the 64 is associated with a square on the board, and you can combine all the bitboards to see the entire position.  The reason this is fast is because modern CPU’s use 64 bit registers, and when your entire board can be manipulated using bit shifting instructions on the CPU you can crunch positions insanely quickly.
                     <br><br>
-                    I actually implemented this in an assignment where the goal was to solve a puzzle where you slid around tetris-looking pieces on a board. Code available <a href="https://github.com/mpvoss/BFS_Puzzle">here</a>.  The performance gains are real.  My implementation with bitboards solved the puzzle in under 4 seconds.  Other java implementations representing the board as char arrays or similar took 4 to 5 minutes to run.  That said, you also end up with code like this:
+                    Said another way, my Object Oriented design was me thinking like a human and making the computer play along.  If I thought like a computer instead (bit maps for pieces and bitwise operations) then the computer could evaluate positions far more quickly.
+                    <br><br>
+                    I actually implemented this in an assignment in university where the goal was to solve a puzzle where you slid around tetris-looking pieces on a board. The code is available <a href="https://github.com/mpvoss/BFS_Puzzle">here</a>.  The performance gains are incredible.  My implementation with bitboards solved the puzzle in under 4 seconds.  Other java implementations representing the board as char arrays or similar took 4 to 5 minutes to run.  That said, you also end up with code like this:
                     <br><br>
                     <div class="code">
                         <span class="InlineComment">//&nbsp;Bitmaps&nbsp;for&nbsp;squares&nbsp;where&nbsp;it&nbsp;is&nbsp;illegal&nbsp;to&nbsp;move&nbsp;left,&nbsp;right,&nbsp;down,&nbsp;or&nbsp;up</span><br />
@@ -362,12 +361,16 @@
                         <br><br>
 
                         Another item in my eventual rewrite is to make the engine UCI compatible so it can "play with other kids" and I can tune it faster as well.
+                        
+                        <br><br>
+                        
+                        Yet another advantage of UCI compatibility is it would create a programatic interface for my engine, meaning other programs could interact with it instead of just a human with a mouse.  I would LOVE to make a Chrome plugin that scraped webpages for chess boards and replied with moves from my engine automatically.
                         <br><br></p>
 
 
 
 
-
+                        All in all this project was incredibly fun and my first exploration into Artificial Intelligence.  Chess engines can be very tedious but they are also a deep rabbit hole and force you to learn a lot about scalability and how computers really work.  If you want to give my engine a try feel free to clone the repo and build it.  <br><br>
 
 
                     <u>Awesome resources I used on this project:</u>

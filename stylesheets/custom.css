@@ -45,6 +45,22 @@ padding-right: 10px;
 
 }
 
+    
+    @media  (max-width: 766px) {
+
+.chat{
+ margin: 0 auto; max-width: 300px;
+
+
+}
+        @media  (min-width: 766px) {
+
+.chat{
+ margin: 0 auto; max-width: 300px;
+
+
+}
+
 
 }
 @keyframes spin {
