@@ -1,396 +1,444 @@
-
-
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="stylesheets/codestyles.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
 
-        <link rel="stylesheet" type="text/css" href="stylesheets/chat.css" media="screen">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/codestyles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
 
-        <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-        
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css" media="screen">
 
-        <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
-        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-        
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script type="text/javascript" src="javascripts/bootstrap.js"></script>
-        <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+
+    <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-        <title>Matthew Voss</title>
-    </head>
-    <body>
-        <header>
-            <div class="inner">
-            </div>
-            <nav class="navbar navbar-default" >
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <title>Matthew Voss</title>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">Matthew Voss</a>
-                    </div>
-
-                    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="books.html">Books</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="chess.html">Chess AI</a></li>
-                                    <li><a href="stocks.html">Stock Market AI</a></li>
-                                    <li><a href="fractal.html">Fractal Motion</a></li>
-
-                                </ul>
-                            </li>
-                        </ul>
-
-                    </div>
+                    <a class="navbar-brand" href="index.html">Matthew Voss</a>
                 </div>
-            </nav>
-        </header>
 
-
-
-
-
-        <div id="content-wrapper">
-            <div class="inner clearfix">
-                <div class="main-content">
-                    <center>
-                        <h2>Artificial Intelligence and Chess</h2>
-                    </center>
-                    <br>
-
-
-                    <figure style="float: left; width: 50%; margin: 10px">
-                        <img src="images/chess.png" alt="My first chess engine" style=" width: 100%; height: 100%; margin: 4px">
-                        <figcaption style="text-align: center"><i>Quiet Intrigue, my Java chess engine. Approximate ELO rating: 1500</i></figcaption>
-                    </figure>
-
-
-
-                    I love writing AI when I can watch them learn and grow more intelligent.  Chess is a great game for learning AI because there is a lot of literature available to get you started.  At the same time there are massive scalability challenges, so good design is critical to building a strong engine.
-                    <br><br>
-                    Being the ambitious sort, I decided I wanted to write a chess engine because I was learning Java.  I always learn a new language or framework best with a project and at the time it made sense to combine a game I liked with a new programming project.  Of course when you consider the massive complexity of some open source chess engines (and the entire online communities it takes to develop them) you can see why this was no small task.
-                    <br><br>
-                    Being new to Java and chess programming in general I learned a lot and re-wrote the engine several times before coming up with anything resembling an intelligent chess player.  
-                    <br><br>
-                    That being said, I am rather proud of the engine I made.  It beat me pretty consistently and my ELO rating was around 1400 at the time.  It can also beat my friends kind enough to test it for me and the Windows chess engine Chess Titan.  Unfortunately it would still make strange mistakes now and then due to heuristic tuning errors. Example: compromising on king safety for a pawn grab.<br><br>
-                    Even so it was a terrifically fun project.  Watching the AI learn chess strategy and make increasingly intelligent moves was incredible.  Eventually it started punishing my own mistakes pretty severely, and I have to play pretty carefully to beat it.
-                    <br><br>
-
-                    The source code for the project is on GitHub: <a href="https://github.com/mpvoss/Chess">https://github.com/mpvoss/Chess</a><br><br>
-                    Disclaimer: I was new to Java and programming in general when writing this.  There are many opportunities for improvement, to say the least!
-
-                    <br><br>
-
-
-                    <br><br>
-                    <center>
-                        <h3>Let's write a Chess AI</h3>
-                    </center>
-                    <br>     
-                    <br>
-                    The biggest take-away I can give on actually programming a chess AI is...
-                    <br><br>
-                    <blockquote>
-                        A Chess Artificial Intelligence knows absolutely nothing....that you don't teach it explicitly
-                    </blockquote>
-
-                    What does that mean?  Let's walk through an example writing a chess AI to see.  I'm going to skip over writing all of the data structures/rule engines/UI because frankly it's extremely tedious and not the point of this write-up.
-
-                    <br><br>
-                    <b>Step one: Teach the AI to value powerful pieces.</b>  
-
-                    <br><br>
-                    You can't win if you don't have any pieces.  This is a good start - now the AI loves to capture stuff. Although it really has no problems putting its pieces in terrible places (including the king!) if that means winning a pawn.  Depending on if you've put together <a href="https://chessprogramming.wikispaces.com/Quiescence+Search">Quiescent Search</a> it might also leave itself in a really risky position after the capture.  <br><br>
-                    I usually think of this tweaking process (update AI settings, play against AI to test, observe AI moves) as an interaction between programmer and AI so that's how I'll illustrate what I mean:
-
-                    <br><br>
-
-
-
-
-
-
-
-
-                    <div class="container" >
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="panel panel-primary" >
-                                    <div class="panel-heading" id="accordion">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        Chat
-                                        
-                                    </div>
-                                    <div class="panel-collapse expand" id="collapseOne" >
-                                        <div class="panel-body" >
-                                            <ul class="chat">
-
-
-
-
-
-
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 57 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>*captures pawn next to AI's king*</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>54 minutes ago </small></div><p>I ACCEPT YOUR SACRIFICE! *captures piece with its king*</p></div></li>
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 51 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>Umm that wasn't a sacrifice.  Now your king is exposed. You're not supposed to move your king-</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>48 minutes ago </small></div><p>What part of "I JUST TOOK YOUR PIECE" is confusing to you? Have some honor in defeat dude.</p></div></li>
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 45 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>Okay fine, have it your way. *checks AI's king with a bishop*</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>42 minutes ago </small></div><p>Ugh, annoying.</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>39 minutes ago </small></div><p>*realizes he can capture another pawn closer to the middle of the board with his king*</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>36 minutes ago </small></div><p>SCOREEEEEEEEEEEEE *captures pawn with king*</p></div></li>
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 33 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>I SAID YOU'RE NOT SUPPOSED TO MOVE YOUR KING TO THE MIDDLE OF- oh forget it</p></div></li>
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 30 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>*checks AI's king again with a knight*</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>27 minutes ago </small></div><p>Sheesh I don't understand why this keeps happening.</p></div></li>
-
-
-
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-
-
-
-
-
-
-
-
-
-
-
-                    Well drat.  I guess it doesn't know anything about playing positionally.  That is to say, usually you're better off if your pieces have more available moves than your opponent.  A side effect of this is that you usually have very few moves when you're in check, so it can help prevent King exposure somewhat.<br><br>
-                    Let's add that feature to our algorithm to make it a little more balanced.
-
-                    <br><br>
-                    <b>Step two: Consider number of available moves in a position</b>
-                    <br><br>
-
-                    Now we are getting somewhere!  Our AI likes to capture pieces and also manoeuvres towards the middle of the board and open files when possible to maximize the number of available moves.  A good Alpha-Beta search will apply these heuristics to the opponent too, so we'll constrict their options wherever possible.  Even better!
-                    <br><br>
-                    Except for....balancing concerns.  Now that we have two heuristics we have to weight them relative to each other.  Clearly material should be weighted more (even if you can move to many squares that doesn't do you good if you lost most of your pieces to achieve that), but by how much?  This is the most fun and painful part of coding a chess engine, in my opinion.  You get to see the AI use all the heuristics you just taught it, but it takes a while before it uses them in a balanced way.  
-
-                    <br><br>
-
-
-
-
-
-
-                    <div class="container" >
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="panel panel-primary" >
-                                    <div class="panel-heading" id="accordion">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        Chat
-                                       
-                                    </div>
-                                    <div class="panel-collapse expand" id="collapseOne" >
-                                        <div class="panel-body" >
-                                            <ul class="chat">
-
-
-
-
-
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 57 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>Okay, ready to test some of the stuff I taught you?</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>54 minutes ago </small></div><p>Yeah scrub let's do this!</p></div></li>
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 51 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>You remember to consider material and piece position, right?</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>48 minutes ago </small></div><p>Sure whatever come on I'm totally going to beat you this time!</p></div></li>
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 45 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>Whatever you say buddy. *plays a simple pawn opening, AI does the same, Matthew moves knight out*</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>42 minutes ago </small></div><p>*moves queen out along an open diagonal, straight towards the middle rank*</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>39 minutes ago </small></div><p>AWWW YEAH I CAN SEE THE WHOLE BOARD FROM HERE!!! You're so toast man I'm like totally winning in this position</p></div></li>
-                                                <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 36 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div><p>Ummm...it's like move 3.  You're not supposed to move your queen out early in chess...</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>33 minutes ago </small></div><p>Huh? IDK man I've got two heuristics right here and one of them says more available moves = super beast mode.</p></div></li>
-                                                <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>30 minutes ago </small></div><p>I think you just said that because you only have like 3 available moves. Get on my level puny human.</p></div></li>
-
-
-
-
-
-
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div></div></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <br><br>
-                    The AI is still exhibiting a lot of what we call "non-human moves".  For example, no one ever told the AI that capturing towards the middle of the board with your king in the opening of the game is risky...so the computer happily does it!  All it knows is that it took a piece and now its king has 3 extra squares it can move to.  Way better than being stuck on the back rank where he couldn't get anywhere, right?!
-                    <br><br>
-
-                    Well...not exactly.  An unprotected king can be easily harassed and that makes it hard to make progress.  Let's add another feature.
-                    <br><br>
-                    <b>Step three: Implement king safety bonuses, early castling bonuses</b>
-                    <br><br>
-                    Much better. Now the AI will castle in the opening when it can, and avoids disturbing his protective shield of pawns if you implemented it that way. Bonuses for good behaviours like these and penalties for unwise moves (moving the queen early, doubling pawns, etc) can help us tine tune the play style of the AI.  <br><br>
-                    
-                    This both creates a more well-rounded engine and creates a mountain of new balancing problems.  Yes it's good to castle early, but would you rather capture a pawn or castle? Would you rather open up more available moves or keep your queen on the home square?  Even for the basic material heuristic, exactly how much more is a queen worth than a knight? All of these are knobs we can turn slightly and get totally different engine behaviour.  It's a deep rabbit hole but with some of the automated training I'll discuss later we can let the AI find the best parameters instead of us.
-                    
-                 
-                    <br><br>
-                    <center>
-                        <h3>Space-time tradeoff</h3>
-                    </center>
-                    Now that we know how to evaluate positions, how can we evaluate the millions and billions of positions that are available?  Let's talk about scaling the engine up.<br><br>Since I knew I’d be visiting the same positions many times over my search, it seemed wasteful to re-explore these branches of the game tree many times. 
-                    <br><br>
-                    I was correct about this.
-                    <br><br>
-                    As such, I decided to store the entire game-tree in memory for better performance.
-                    <br><br>
-                    I was horribly, horribly incorrect about this.
-                    <br><br>
-                    The game tree is simply too big, it grows at a rate of b<sup>d</sup>, where b is the branching factor (~35) and d is the depth to which you are searching.  My JVM usually crashed after a depth of 4 or 5 ply (35^5 is about 52 million Move objects that I was storing in my tree).
-                    <br><br>
-                    The better approach is using a hashtable to store good moves as you find them.  This has huge savings because it’s very common to see the same positions many times over the course of your search.  Usually a specialized hashtable called a <a href="https://chessprogramming.wikispaces.com/Transposition+Table">Transposition Table</a> is used and there’s plenty of business logic about when you can remove a position from the table and how you handle collisions and whatnot. 
-                    <br><br>
-                    With a transposition table my engine would be able to look much deeper than the pitiful 4 or 5 ply I was doing before (the strongest engines have no problem looking 20 or more ply deep).  This would make a huge difference with the strength of the engine, and it's on my TODO list if I ever rewrite the engine for the umpteenth time.
-                    <br><br>
-                    <center>
-                        <h3>Readability vs performance</h3>
-                    </center>
-                    <br>
-                    Since I was learning Java I designed the engine in a very Object Oriented way.  I had a class for Pieces, Moves, etc.  The game tree was a graph of moves, and to explore the board you had to make and unmake moves on a global board object (I was new to coding, I admit the design was horrendous).  This made for mostly easy to read code, but it’s simply not how the top engines represent the game.
-                    <br><br>
-                    Most self-respecting engines use <a href="https://en.wikipedia.org/wiki/Bitboard">bitboards</a> to represent the board.  This is a 64 bit datatype (usually a long) that represent if a piece is on a square or not.  You can have a white bishop bitboard, a black rook bitboard, etc.  Each bit of the 64 is associated with a square on the board, and you can combine all the bitboards to see the entire position.  The reason this is fast is because modern CPU’s use 64 bit registers, and when your entire board can be manipulated using bit shifting instructions on the CPU you can crunch positions insanely quickly.
-                    <br><br>
-                    Said another way, my Object Oriented design was me thinking like a human and making the computer play along.  If I thought like a computer instead (bit maps for pieces and bitwise operations) then the computer could evaluate positions far more quickly.
-                    <br><br>
-                    I actually implemented this in an assignment in university where the goal was to solve a puzzle where you slid around tetris-looking pieces on a board. The code is available <a href="https://github.com/mpvoss/BFS_Puzzle">here</a>.  The performance gains are incredible.  My implementation with bitboards solved the puzzle in under 4 seconds.  Other java implementations representing the board as char arrays or similar took 4 to 5 minutes to run.  That said, you also end up with code like this:
-                    <br><br>
-                    <div class="code">
-                        <span class="InlineComment">//&nbsp;Bitmaps&nbsp;for&nbsp;squares&nbsp;where&nbsp;it&nbsp;is&nbsp;illegal&nbsp;to&nbsp;move&nbsp;left,&nbsp;right,&nbsp;down,&nbsp;or&nbsp;up</span><br />
-                        <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;leftMoveBorder&nbsp;=&nbsp;0xE0C088888080C0E0L;<br />
-                        <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;rightMoveBorder&nbsp;=&nbsp;0x0703214101010307L;<br />
-                        <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;downMoveBorder&nbsp;=&nbsp;0xC39130300081C3FFL;<br />
-                        <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;upMoveBorder&nbsp;=&nbsp;0xFFC39130300081C3L;<br />
-                        <br />
-                        <span class="InlineComment">//&nbsp;Bitmaps&nbsp;for&nbsp;all&nbsp;pieces.&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;1&nbsp;in&nbsp;the&nbsp;binary&nbsp;string&nbsp;for&nbsp;a&nbsp;spot,</span><br />
-                        <span class="InlineComment">//&nbsp;one&nbsp;of&nbsp;the&nbsp;piece's&nbsp;parts&nbsp;is&nbsp;on&nbsp;that&nbsp;square</span><br />
-                        <span class="Modifier">private</span>&nbsp;<span class="Type">long</span>[]&nbsp;pieces&nbsp;=&nbsp;{&nbsp;<br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000C0C000000000L,&nbsp;<span class="InlineComment">//&nbsp;Red&nbsp;square</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0C08000000000000L,&nbsp;<span class="InlineComment">//&nbsp;Orange&nbsp;L</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x00040C0000000000L,&nbsp;<span class="InlineComment">//&nbsp;Blue&nbsp;L</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000080C00000L,&nbsp;<span class="InlineComment">//&nbsp;Bright&nbsp;green&nbsp;L</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000060200000L,&nbsp;<span class="InlineComment">//&nbsp;Purple&nbsp;L</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000818080000L,&nbsp;<span class="InlineComment">//&nbsp;Green&nbsp;Blue&nbsp;T</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000406040000L,&nbsp;<span class="InlineComment">//&nbsp;Green&nbsp;T</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000001030000L,&nbsp;<span class="InlineComment">//&nbsp;Weird&nbsp;bright&nbsp;Blue&nbsp;L</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000000002030L,&nbsp;<span class="InlineComment">//&nbsp;Pink&nbsp;L</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000000001808L,&nbsp;<span class="InlineComment">//&nbsp;Yellow&nbsp;L</span><br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000000000604L&nbsp;&nbsp;<span class="InlineComment">//&nbsp;Brown&nbsp;L</span><br />
-                        };
-                    </div>
-                    <br><br>
-                    Great performance? Absolutely. Easy to read?  Oh heavens no.  That being said, I would love to see how strong my engine could be if it really leveraged the 64 bit CPU it was running on.  This is also on the TODO list if the rewrite ever happens.
-                    <br><br>
-
-                    <br><br>
-                    <center>
-                        <h3>(Not) Re-inventing the wheel</h3>
-                    </center>
-                    <br>
-
-
-                    <figure style="float: left; width: 50%; margin: 10px">
-                        <img src="images/Arena.png" alt="Arena" style=" width: 100%; height: 100%; margin: 3px">
-                        <figcaption style="text-align: center"><i>Arena, a UCI-compatible front-end with way more features than my dinky Swing GUI</i></figcaption>
-                    </figure>
-
-                    <p>
-                        Like most college student programmers, on this project I tended to write everything from scratch. This was both because I wanted to learn everything I could and because I simply didn't appreciate what a timesaver it is to leverage other people's code.<br><br>
-
-                        Example: The entire front end of my chess app
-
-                        <br><br>
-
-                        Since I was programming in Java I had to learn Swing and I spent so many hours debugging Swing code and learning how to use Layout Managers and trying to understand why my pieces weren't moving around like I expected.  What a waste of time!  If I had made my engine UCI (Universal Chess Interface) compliant I could have leveraged the chess GUI's that are open source and plugged my engine into any of them.
-
-                        <br><br>
-
-                        This has other pay-offs like the ability to programmatically play my engine against other engines.  The top open source engine <a href="https://stockfishchess.org/">Stockfish</a> not only supports this but crowdsources the tuning of the engine by mutating its meta-parameters and playing millions of games with different strains of the engine against itself, all on the computers of the community!  The strain that wins the most game lives on and thus they are able to tune the engine exponentially faster than anyone could by hand.
-
-                        <br><br>
-
-                        Another item in my eventual rewrite is to make the engine UCI compatible so it can "play with other kids" and I can tune it faster as well.
-                        
-                        <br><br>
-                        
-                        Yet another advantage of UCI compatibility is it would create a programatic interface for my engine, meaning other programs could interact with it instead of just a human with a mouse.  I would LOVE to make a Chrome plugin that scraped webpages for chess boards and replied with moves from my engine automatically.
-                        <br><br></p>
-
-
-
-
-                        All in all this project was incredibly fun and my first exploration into Artificial Intelligence.  Chess engines can be very tedious but they are also a deep rabbit hole and force you to learn a lot about scalability and how computers really work.  If you want to give my engine a try feel free to clone the repo and build it.  <br><br>
-
-
-                    <u>Awesome resources I used on this project:</u>
-                    <br>
-                    <ul>
-                        <li>https://chessprogramming.wikispaces.com/</li>
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="chess.html">Chess AI</a></li>
+                                <li><a href="stocks.html">Stock Market AI</a></li>
+                                <li><a href="fractal.html">Fractal Motion</a></li>
+                                <li><a href="pension.html">Dynamic Programming Pension</a></li>
+
+                            </ul>
+                        </li>
                     </ul>
-
 
                 </div>
             </div>
+        </nav>
+    </header>
+
+
+
+
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <div class="main-content">
+                <center>
+                    <h2>Artificial Intelligence and Chess</h2>
+                </center>
+                <br>
+
+
+                <figure style="float: left; width: 50%; margin: 10px">
+                    <img src="images/chess.png" alt="My first chess engine" style=" width: 100%; height: 100%; margin: 4px">
+                    <figcaption style="text-align: center"><i>Quiet Intrigue, my Java chess engine. Approximate ELO rating: 1500</i></figcaption>
+                </figure>
+
+
+
+                I love writing AI when I can watch them learn and grow more intelligent. Chess is a great game for learning AI because there is a lot of literature available to get you started. At the same time there are massive scalability challenges, so good design is critical to building a strong engine.
+                <br><br> Being the ambitious sort, I decided I wanted to write a chess engine because I was learning Java. I always learn a new language or framework best with a project and at the time it made sense to combine a game I liked with a new programming project. Of course when you consider the massive complexity of some open source chess engines (and the entire online communities it takes to develop them) you can see why this was no small task.
+                <br><br> Being new to Java and chess programming in general I learned a lot and re-wrote the engine several times before coming up with anything resembling an intelligent chess player.
+                <br><br> That being said, I am rather proud of the engine I made. It beat me pretty consistently and my ELO rating was around 1400 at the time. It can also beat my friends kind enough to test it for me and the Windows chess engine Chess Titan. Unfortunately it would still make strange mistakes now and then due to heuristic tuning errors. Example: compromising on king safety for a pawn grab.<br><br> Even so it was a terrifically fun project. Watching the AI learn chess strategy and make increasingly intelligent moves was incredible. Eventually it started punishing my own mistakes pretty severely, and I have to play pretty carefully to beat it.
+                <br><br> The source code for the project is on GitHub: <a href="https://github.com/mpvoss/Chess">https://github.com/mpvoss/Chess</a><br><br> Disclaimer: I was new to Java and programming in general when writing this. There are many opportunities for improvement, to say the least!
+
+                <br><br>
+
+
+                <br><br>
+                <center>
+                    <h3>Let's write a Chess AI</h3>
+                </center>
+                <br>
+                <br> The biggest take-away I can give on actually programming a chess AI is...
+                <br><br>
+                <blockquote>
+                    A Chess Artificial Intelligence knows absolutely nothing....that you don't teach it explicitly
+                </blockquote>
+
+                What does that mean? Let's walk through an example writing a chess AI to see. I'm going to skip over writing all of the data structures/rule engines/UI because frankly it's extremely tedious and not the point of this write-up.
+
+                <br><br>
+                <b>Step one: Teach the AI to value powerful pieces.</b>
+
+                <br><br> You can't win if you don't have any pieces. This is a good start - now the AI loves to capture stuff. Although it really has no problems putting its pieces in terrible places (including the king!) if that means winning a pawn. Depending on if you've put together <a href="https://chessprogramming.wikispaces.com/Quiescence+Search">Quiescent Search</a> it might also leave itself in a really risky position after the capture. <br><br> I usually think of this tweaking process (update AI settings, play against AI to test, observe AI moves) as an interaction between programmer and AI so that's how I'll illustrate what I mean:
+
+                <br><br>
+
+
+
+
+
+
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading" id="accordion">
+                                    <i class="fa fa-comment" aria-hidden="true"></i> Chat
+
+                                </div>
+                                <div class="panel-collapse expand" id="collapseOne">
+                                    <div class="panel-body">
+                                        <ul class="chat">
+
+
+
+
+
+
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 57 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>*captures pawn next to AI's king*</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>54 minutes ago </small></div>
+                                                    <p>I ACCEPT YOUR SACRIFICE! *captures piece with its king*</p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 51 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>Umm that wasn't a sacrifice. Now your king is exposed. You're not supposed to move your king-</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>48 minutes ago </small></div>
+                                                    <p>What part of "I JUST TOOK YOUR PIECE" is confusing to you? Have some honor in defeat dude.</p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 45 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>Okay fine, have it your way. *checks AI's king with a bishop*</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>42 minutes ago </small></div>
+                                                    <p>Ugh, annoying.</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>39 minutes ago </small></div>
+                                                    <p>*realizes he can capture another pawn closer to the middle of the board with his king*</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>36 minutes ago </small></div>
+                                                    <p>SCOREEEEEEEEEEEEE *captures pawn with king*</p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 33 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>I SAID YOU'RE NOT SUPPOSED TO MOVE YOUR KING TO THE MIDDLE OF- oh forget it</p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 30 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>*checks AI's king again with a knight*</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>27 minutes ago </small></div>
+                                                    <p>Sheesh I don't understand why this keeps happening.</p>
+                                                </div>
+                                            </li>
+
+
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                Well drat. I guess it doesn't know anything about playing positionally. That is to say, usually you're better off if your pieces have more available moves than your opponent. A side effect of this is that you usually have very few moves when you're in check, so it can help prevent King exposure somewhat.<br><br> Let's add that feature to our algorithm to make it a little more balanced.
+
+                <br><br>
+                <b>Step two: Consider number of available moves in a position</b>
+                <br><br> Now we are getting somewhere! Our AI likes to capture pieces and also manoeuvres towards the middle of the board and open files when possible to maximize the number of available moves. A good Alpha-Beta search will apply these heuristics to the opponent too, so we'll constrict their options wherever possible. Even better!
+                <br><br> Except for....balancing concerns. Now that we have two heuristics we have to weight them relative to each other. Clearly material should be weighted more (even if you can move to many squares that doesn't do you good if you lost most of your pieces to achieve that), but by how much? This is the most fun and painful part of coding a chess engine, in my opinion. You get to see the AI use all the heuristics you just taught it, but it takes a while before it uses them in a balanced way.
+
+                <br><br>
+
+
+
+
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading" id="accordion">
+                                    <i class="fa fa-comment" aria-hidden="true"></i> Chat
+
+                                </div>
+                                <div class="panel-collapse expand" id="collapseOne">
+                                    <div class="panel-body">
+                                        <ul class="chat">
+
+
+
+
+
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 57 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>Okay, ready to test some of the stuff I taught you?</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>54 minutes ago </small></div>
+                                                    <p>Yeah scrub let's do this!</p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 51 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>You remember to consider material and piece position, right?</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>48 minutes ago </small></div>
+                                                    <p>Sure whatever come on I'm totally going to beat you this time!</p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 45 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>Whatever you say buddy. *plays a simple pawn opening, AI does the same, Matthew moves knight out*</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>42 minutes ago </small></div>
+                                                    <p>*moves queen out along an open diagonal, straight towards the middle rank*</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>39 minutes ago </small></div>
+                                                    <p>AWWW YEAH I CAN SEE THE WHOLE BOARD FROM HERE!!! You're so toast man I'm like totally winning in this position</p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right"><img src="images/matthew.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> 36 minutes ago </small><strong class="pull-right primary-font">Matthew Voss</strong></div>
+                                                    <p>Ummm...it's like move 3. You're not supposed to move your queen out early in chess...</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>33 minutes ago </small></div>
+                                                    <p>Huh? IDK man I've got two heuristics right here and one of them says more available moves = super beast mode.</p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix"><span class="chat-img pull-left"><img src="images/robot.jpg" width="50" height="50" alt="User Avatar" class="img-circle" /></span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header"><strong class="left primary-font">AI</strong><small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>30 minutes ago </small></div>
+                                                    <p>I think you just said that because you only have like 3 available moves. Get on my level puny human.</p>
+                                                </div>
+                                            </li>
+
+
+
+
+
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <br><br> The AI is still exhibiting a lot of what we call "non-human moves". For example, no one ever told the AI that capturing towards the middle of the board with your king in the opening of the game is risky...so the computer happily does it! All it knows is that it took a piece and now its king has 3 extra squares it can move to. Way better than being stuck on the back rank where he couldn't get anywhere, right?!
+                <br><br> Well...not exactly. An unprotected king can be easily harassed and that makes it hard to make progress. Let's add another feature.
+                <br><br>
+                <b>Step three: Implement king safety bonuses, early castling bonuses</b>
+                <br><br> Much better. Now the AI will castle in the opening when it can, and avoids disturbing his protective shield of pawns if you implemented it that way. Bonuses for good behaviours like these and penalties for unwise moves (moving the queen early, doubling pawns, etc) can help us tine tune the play style of the AI. <br><br> This both creates a more well-rounded engine and creates a mountain of new balancing problems. Yes it's good to castle early, but would you rather capture a pawn or castle? Would you rather open up more available moves or keep your queen on the home square? Even for the basic material heuristic, exactly how much more is a queen worth than a knight? All of these are knobs we can turn slightly and get totally different engine behaviour. It's a deep rabbit hole but with some of the automated training I'll discuss later we can let the AI find the best parameters instead of us.
+
+
+                <br><br>
+                <center>
+                    <h3>Space-time tradeoff</h3>
+                </center>
+                Now that we know how to evaluate positions, how can we evaluate the millions and billions of positions that are available? Let's talk about scaling the engine up.<br><br>Since I knew I’d be visiting the same positions many times over my search, it seemed wasteful to re-explore these branches of the game tree many times.
+                <br><br> I was correct about this.
+                <br><br> As such, I decided to store the entire game-tree in memory for better performance.
+                <br><br> I was horribly, horribly incorrect about this.
+                <br><br> The game tree is simply too big, it grows at a rate of b<sup>d</sup>, where b is the branching factor (~35) and d is the depth to which you are searching. My JVM usually crashed after a depth of 4 or 5 ply (35^5 is about 52 million Move objects that I was storing in my tree).
+                <br><br> The better approach is using a hashtable to store good moves as you find them. This has huge savings because it’s very common to see the same positions many times over the course of your search. Usually a specialized hashtable called a <a href="https://chessprogramming.wikispaces.com/Transposition+Table">Transposition Table</a> is used and there’s plenty of business logic about when you can remove a position from the table and how you handle collisions and whatnot.
+                <br><br> With a transposition table my engine would be able to look much deeper than the pitiful 4 or 5 ply I was doing before (the strongest engines have no problem looking 20 or more ply deep). This would make a huge difference with the strength of the engine, and it's on my TODO list if I ever rewrite the engine for the umpteenth time.
+                <br><br>
+                <center>
+                    <h3>Readability vs performance</h3>
+                </center>
+                <br> Since I was learning Java I designed the engine in a very Object Oriented way. I had a class for Pieces, Moves, etc. The game tree was a graph of moves, and to explore the board you had to make and unmake moves on a global board object (I was new to coding, I admit the design was horrendous). This made for mostly easy to read code, but it’s simply not how the top engines represent the game.
+                <br><br> Most self-respecting engines use <a href="https://en.wikipedia.org/wiki/Bitboard">bitboards</a> to represent the board. This is a 64 bit datatype (usually a long) that represent if a piece is on a square or not. You can have a white bishop bitboard, a black rook bitboard, etc. Each bit of the 64 is associated with a square on the board, and you can combine all the bitboards to see the entire position. The reason this is fast is because modern CPU’s use 64 bit registers, and when your entire board can be manipulated using bit shifting instructions on the CPU you can crunch positions insanely quickly.
+                <br><br> Said another way, my Object Oriented design was me thinking like a human and making the computer play along. If I thought like a computer instead (bit maps for pieces and bitwise operations) then the computer could evaluate positions far more quickly.
+                <br><br> I actually implemented this in an assignment in university where the goal was to solve a puzzle where you slid around tetris-looking pieces on a board. The code is available <a href="https://github.com/mpvoss/BFS_Puzzle">here</a>. The performance gains are incredible. My implementation with bitboards solved the puzzle in under 4 seconds. Other java implementations representing the board as char arrays or similar took 4 to 5 minutes to run. That said, you also end up with code like this:
+                <br><br>
+                <div class="code">
+                    <span class="InlineComment">//&nbsp;Bitmaps&nbsp;for&nbsp;squares&nbsp;where&nbsp;it&nbsp;is&nbsp;illegal&nbsp;to&nbsp;move&nbsp;left,&nbsp;right,&nbsp;down,&nbsp;or&nbsp;up</span><br />
+                    <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;leftMoveBorder&nbsp;=&nbsp;0xE0C088888080C0E0L;<br />
+                    <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;rightMoveBorder&nbsp;=&nbsp;0x0703214101010307L;<br />
+                    <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;downMoveBorder&nbsp;=&nbsp;0xC39130300081C3FFL;<br />
+                    <span class="Modifier">static</span>&nbsp;<span class="Type">long</span>&nbsp;upMoveBorder&nbsp;=&nbsp;0xFFC39130300081C3L;<br />
+                    <br />
+                    <span class="InlineComment">//&nbsp;Bitmaps&nbsp;for&nbsp;all&nbsp;pieces.&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;1&nbsp;in&nbsp;the&nbsp;binary&nbsp;string&nbsp;for&nbsp;a&nbsp;spot,</span><br />
+                    <span class="InlineComment">//&nbsp;one&nbsp;of&nbsp;the&nbsp;piece's&nbsp;parts&nbsp;is&nbsp;on&nbsp;that&nbsp;square</span><br />
+                    <span class="Modifier">private</span>&nbsp;<span class="Type">long</span>[]&nbsp;pieces&nbsp;=&nbsp;{&nbsp;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000C0C000000000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Red&nbsp;square</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0C08000000000000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Orange&nbsp;L</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x00040C0000000000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Blue&nbsp;L</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000080C00000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Bright&nbsp;green&nbsp;L</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000060200000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Purple&nbsp;L</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000818080000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Green&nbsp;Blue&nbsp;T</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000406040000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Green&nbsp;T</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000001030000L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Weird&nbsp;bright&nbsp;Blue&nbsp;L</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000000002030L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Pink&nbsp;L</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000000001808L,&nbsp;
+                    <span class="InlineComment">//&nbsp;Yellow&nbsp;L</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000000000000604L&nbsp;&nbsp;
+                    <span class="InlineComment">//&nbsp;Brown&nbsp;L</span><br /> };
+                </div>
+                <br><br> Great performance? Absolutely. Easy to read? Oh heavens no. That being said, I would love to see how strong my engine could be if it really leveraged the 64 bit CPU it was running on. This is also on the TODO list if the rewrite ever happens.
+                <br><br>
+
+                <br><br>
+                <center>
+                    <h3>(Not) Re-inventing the wheel</h3>
+                </center>
+                <br>
+
+
+                <figure style="float: left; width: 50%; margin: 10px">
+                    <img src="images/Arena.png" alt="Arena" style=" width: 100%; height: 100%; margin: 3px">
+                    <figcaption style="text-align: center"><i>Arena, a UCI-compatible front-end with way more features than my dinky Swing GUI</i></figcaption>
+                </figure>
+
+                <p>
+                    Like most college student programmers, on this project I tended to write everything from scratch. This was both because I wanted to learn everything I could and because I simply didn't appreciate what a timesaver it is to leverage other people's code.<br><br> Example: The entire front end of my chess app
+
+                    <br><br> Since I was programming in Java I had to learn Swing and I spent so many hours debugging Swing code and learning how to use Layout Managers and trying to understand why my pieces weren't moving around like I expected. What a waste of time! If I had made my engine UCI (Universal Chess Interface) compliant I could have leveraged the chess GUI's that are open source and plugged my engine into any of them.
+
+                    <br><br> This has other pay-offs like the ability to programmatically play my engine against other engines. The top open source engine <a href="https://stockfishchess.org/">Stockfish</a> not only supports this but crowdsources the tuning of the engine by mutating its meta-parameters and playing millions of games with different strains of the engine against itself, all on the computers of the community! The strain that wins the most game lives on and thus they are able to tune the engine exponentially faster than anyone could by hand.
+
+                    <br><br> Another item in my eventual rewrite is to make the engine UCI compatible so it can "play with other kids" and I can tune it faster as well.
+
+                    <br><br> Yet another advantage of UCI compatibility is it would create a programatic interface for my engine, meaning other programs could interact with it instead of just a human with a mouse. I would LOVE to make a Chrome plugin that scraped webpages for chess boards and replied with moves from my engine automatically.
+                    <br><br></p>
+
+
+
+
+                All in all this project was incredibly fun and my first exploration into Artificial Intelligence. Chess engines can be very tedious but they are also a deep rabbit hole and force you to learn a lot about scalability and how computers really work. If you want to give my engine a try feel free to clone the repo and build it. <br><br>
+
+
+                <u>Awesome resources I used on this project:</u>
+                <br>
+                <ul>
+                    <li>https://chessprogramming.wikispaces.com/</li>
+                </ul>
+
+
+            </div>
         </div>
+    </div>
 
-        <script>
-            $(window).on('load',function() {
-                $('img#arena').captionjs();
-            });
+    <script>
+        $(window).on('load', function() {
+            $('img#arena').captionjs();
+        });
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
-
-

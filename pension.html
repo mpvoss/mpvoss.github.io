@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/codestyles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+
+    <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <title>Matthew Voss</title>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="index.html">Matthew Voss</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="chess.html">Chess AI</a></li>
+                                <li><a href="stocks.html">Stock Market AI</a></li>
+                                <li><a href="fractal.html">Fractal Motion</a></li>
+                                <li><a href="pension.html">Dynamic Programming Pension</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <div class="main-content">
+                <center>
+                    <h2>Dynamic Programming in the Wild</h2>
+                </center>
+                <br> After studying Computer Science theory for 4 years and doing lots of practice problems, it's a little disappointing that zesty problems like graph algorithms/divide and conquer don't come up frequently. That is why I was thrilled to be prompted with a real-world problem that needed some solid CS theory:
+                <br>
+                <br> <b>Problem statement:</b>
+                <br> Pensions at Company A are calculated by taking the average pay of either
+                <ul>
+                    <li>The last 10 years of their service</li>
+                    <li>Any other combination of 10 periods of 52 weeks </li>
+                </ul>
+
+                Goal: Maximize the pension of retiring employees.<br>
+                <br> Usually, employees take the first option because it's easy and often mostly correct, but is there an efficient way to find the optimal solution?
+
+                <br>
+
+                <br>
+
+                <center>
+                    <h3>Option 1: Brute force</h3>
+                </center>
+
+                <center><img width="60%" alt="Runtime XKCD" src="https://imgs.xkcd.com/comics/travelling_salesman_problem.png" /></center>
+                <br>
+                <center><a href="https://xkcd.com/399/">Relevant XKCD</a> </center>
+
+                <br> Hopefully, you groaned as much reading "brute force" as I did writing it. While checking every possible combination of time slices does find the optimal answer, it takes a loooooooong time. How long, you ask?
+
+                <br>
+                <br> If we assume a career of 40 years, that is 40 years x 52 weeks per year = 2080 input points.
+                <br>
+                <br>So how many ways can we choose 10 chunks of length 52 weeks? This can be transformed into an easier combinatorics problem by considering that we're really asking how many ways we can arrange <i>chunks that are selected</i> vs <i>items that are not selected.</i>
+                <br><br> Once we make that simplification, there are actually 1570 elements that we are organizing:
+                <ul>
+                    <li>10 chunks which contain 520 elements (10 chunks of length 52)</li>
+                    <li>1560 elements which are not in chunks (2080-520)</li>
+                </ul>
+                So now it's just 1570 choose 10.
+
+                <br><br> "Just" 1570 choose 10.
+
+                <br><br>According to Wolfram Alpha that is 2.43 x10<sup>25</sup>. That number is HUGE. For reference:
+                <ul>
+                    <li>There are ~7.5 x 10<sup>18</sup> grains of sand on planet Earth</li>
+                    <li>The observable universe has a diameter of about 10<sup>27</sup> meters</li>
+                </ul>
+
+                If all 7 billion people on earth used a computer that could check one of these combinations every 10 ms, it would take 1,140,794 years to check them all.
+
+                <br><br> Okay clearly brute force is a bad idea, but it's useful to know when it is and isn't feasible. Maybe we can compromise accuracy for speed?
+                <br><br>
+
+                <center>
+                    <h3>Option 2: Greedy Algorithms</h3>
+                </center>
+                <br> One improvement would be to find the most "dollar dense" section of the series and make that one of your 10 regions. Then you can remove that section from the series and repeat.
+                <br> <br> This is not a terrible idea. Unlike Option 1 it does finish before the heat death of the universe. Also unlike Option 1, it does not always find the optimal answer. Consider the following data, where we want to select 2 blocks of length 3:
+                <br><br>
+                <center><img src="images/pensionBlank.PNG" /></center>
+
+                <br><br> The greedy strategy would take the 0 3 3 chunk and then 0 3 1 is the only valid chunk left. That has a total of 10:
+                <br><br>
+                <center><img src="images/pensionGreedy.PNG" /></center><br><br> Better is to split up the pair of 3's and get 3 0 3 and 3 0 3, for an optimal total of 12:
+                <br><br>
+                <center><img src="images/pensionOptimal.PNG" /></center><br><br> Greedy algorithms always have this drawback, and while they are fast they are not typically optimal.
+
+                <br><br>So the real question is: Can we find the optimal answer in a reasonable amount of time?
+
+                <br><br>
+
+
+                <center>
+                    <h3>Option 3: Dynamic Programming</h3>
+                </center>
+                <br> As the title of this write-up implies, I was very impressed to run into a problem with a sound DP solution in the "real world." I've done plenty of Dynamic Programming problems for interview prep and in college but it's just not something we run into every day.
+
+                <br>
+                <br> The giveaway on this problem was that the optimal answer was composed of the optimal answers to sub-problems. This is always the nature of Dynamic Programming problems, and in this case, I was able to re-frame the problem into the well-known dynamic programming problem the <a href="https://en.wikipedia.org/wiki/Knapsack_problem">0-1 Knapsack Problem</a>.
+
+                <br>
+                <br> In the traditional knapsack problem, we are considering which items a thief should put in their bag to maximize the value of what they take (they don't have room in their knapsack for everything). I wasn't choosing what weeks to use, but rather which <i>blocks</i> of weeks to use. As such, instead of looping over all the weeks I considered blocks of weeks and then I was dealing with a typical knapsack problem.
+                <br>
+                <br> Enough monologing, here's the code (it takes a csv file name as an argument, as well as the chunk size and the number of chunks):
+                <br>
+                <br>
+                <script src="https://gist.github.com/mpvoss/bd9daf4337730c67fee811965574d835.js"></script>
+
+
+                <br> By using dynamic programming we are able to catch edge cases like the one that broke the greedy strategy. After it knows what the best solution is with one block in every position it can combine subproblems to determine that breaking up dense regions provides a better big-picture answer.
+
+                <br><br> Of course, brute force finds the same optimal answers to problems that dynamic programming does. They have different runtimes, however. While brute force can't solve any interesting problems in your lifetime, my DP approach solves the 10-year sample problem instantaneously. I made some test data of ~77,000 weeks of data just to test it and it still solved that in about a second.
+
+                <br>
+                <br> There's clearly room for improvement with this code. I could cache/precompute the sums of all the ranges instead of counting them every time, and my code isn't very Pythonic. Ultimately it works and runs very quickly so I haven't taken much time to optimize.
+
+                <br>
+                <br>
+
+                <center>
+                    <h3>Conclusion</h3>
+                </center>
+                Overall I was quite excited to see a real-world application of DP, and I'm glad I was able to implement a solution. Most of the other approaches I saw offered to this problem suffered from the pitfalls of greedy algorithms or the inefficiency of brute force.
+                <br><br> Once in a while, it's nice for some Computer Science Theory to save the day!
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(window).on('load', function() {
+            $('img#arena').captionjs();
+        });
+
+    </script>
+</body>
+
+</html>

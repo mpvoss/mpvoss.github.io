@@ -1,137 +1,145 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
-  
-  <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-  <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
 
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
 
-  <script type="text/javascript" src="javascripts/bootstrap.js"></script>
-<script src="fractal.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
 
-<script>
-var global_xCenter = -0.5;
-var global_yCenter = 0;
-var global_width = 5;
-var global_height = 3;
-var global_colorScale = 65;
-</script>
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <script src="fractal.js"></script>
+
+    <script>
+        var global_xCenter = -0.5;
+        var global_yCenter = 0;
+        var global_width = 5;
+        var global_height = 3;
+        var global_colorScale = 65;
+
+    </script>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <title>Matthew Voss</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <div class="inner">
+        <div class="inner">
 
-      </div>
+        </div>
 
 
-       <nav class="navbar navbar-default" >
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Matthew Voss</a>
-          </div>
+                    <a class="navbar-brand" href="index.html">Matthew Voss</a>
+                </div>
 
-          <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="about.html">About</a></li>
-              <li><a href="books.html">Books</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="chess.html">Chess AI</a></li>
-                  <li><a href="stocks.html">Stock Market AI</a></li>
-                  <li><a href="fractal.html">Fractal Motion</a></li>
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="chess.html">Chess AI</a></li>
+                                <li><a href="stocks.html">Stock Market AI</a></li>
+                                <li><a href="fractal.html">Fractal Motion</a></li>
+                                <li><a href="pension.html">Dynamic Programming Pension</a></li>
 
-                </ul>
-              </li>
-            </ul>
+                            </ul>
+                        </li>
+                    </ul>
 
-          </div>
-        </div>
-      </nav>
+                </div>
+            </div>
+        </nav>
 
     </header>
- <div id="content-wrapper">
-      <div class="inner clearfix">
-         <div class="main-content">
-         
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <div class="main-content">
 
-<center><h2>Matthew's favorite books</h2></center>
 
-<img class="img-rounded" src="images/books1.jpg" class="img-responsive" width="50%" height="50%" alt="Matthew Voss" align="left" style="margin:20px;" style="float: left;display: inline-block;">
-<br>
-It's very important to learn from your mistakes and experiences.  It's a little faster to learn from other people's mistakes and experiences, though.  That's why I love to read.  I like sharing my favorite books because it connects other people with resources I've found instructive.  Here are some of my favorites:
-<br><br>
-<div style="overflow: hidden">
+                <center>
+                    <h2>Matthew's favorite books</h2>
+                </center>
 
-<b>Effectiveness/Self Improvement</b>
-<ul class="book" style="overflow: hidden">
-  <li>7 Habits of Highly Effective People</li>
-  <li>The Mindset of Success</li>
-  <li>How to Win Friends and Influence People</li>
-  <li>Emotional Intelligence 2.0</li>
-</ul>
-</div><div style="overflow: hidden">
-<b>Philosophy</b>
-<ul class="book" style="overflow: hidden">
-  <li>Dahmapadda</li>
-  <li>As a Man Thinketh</li>
-  <li>Love Yourself Like Your Life Depends On It</li>
-</ul>
-</div><div style="overflow: hidden">
+                <img class="img-rounded" src="images/books1.jpg" class="img-responsive" width="50%" height="50%" alt="Matthew Voss" align="left" style="margin:20px;" style="float: left;display: inline-block;">
+                <br> It's very important to learn from your mistakes and experiences. It's a little faster to learn from other people's mistakes and experiences, though. That's why I love to read. I like sharing my favorite books because it connects other people with resources I've found instructive. Here are some of my favorites:
+                <br><br>
+                <div style="overflow: hidden">
 
-<b>Economics/Finance</b>
-<ul class="book" style="overflow: hidden">
-  <li>Boglehead's Guide to Investing</li>
-  <li>Rich Dad, Poor Dad</li>
-</ul>
+                    <b>Effectiveness/Self Improvement</b>
+                    <ul class="book" style="overflow: hidden">
+                        <li>7 Habits of Highly Effective People</li>
+                        <li>The Mindset of Success</li>
+                        <li>How to Win Friends and Influence People</li>
+                        <li>Emotional Intelligence 2.0</li>
+                    </ul>
+                </div>
+                <div style="overflow: hidden">
+                    <b>Philosophy</b>
+                    <ul class="book" style="overflow: hidden">
+                        <li>Dahmapadda</li>
+                        <li>As a Man Thinketh</li>
+                        <li>Love Yourself Like Your Life Depends On It</li>
+                    </ul>
+                </div>
+                <div style="overflow: hidden">
 
-<b>Fitness/Health</b>
-<ul class="book">
-  <li>Born to Run</li>
-  <li>The Primal Blueprint</li>
-</ul>
-</div><div style="overflow: hidden">
+                    <b>Economics/Finance</b>
+                    <ul class="book" style="overflow: hidden">
+                        <li>Boglehead's Guide to Investing</li>
+                        <li>Rich Dad, Poor Dad</li>
+                    </ul>
 
-<b>Reading list</b>
-<ul class="book">
-  <li>The Power of Myth</li>
-  <li>What Every BODY is saying</li>
-  <li>The Secret to Joy - Dalai Lama, Desmond Tutu</li>
+                    <b>Fitness/Health</b>
+                    <ul class="book">
+                        <li>Born to Run</li>
+                        <li>The Primal Blueprint</li>
+                    </ul>
+                </div>
+                <div style="overflow: hidden">
 
-</ul>
-</div><div style="overflow: hidden">
+                    <b>Reading list</b>
+                    <ul class="book">
+                        <li>The Power of Myth</li>
+                        <li>What Every BODY is saying</li>
+                        <li>The Secret to Joy - Dalai Lama, Desmond Tutu</li>
 
+                    </ul>
+                </div>
+                <div style="overflow: hidden">
+
+                </div>
+
+            </div>
         </div>
 
-      </div>
-    </div>
 
-  
-  </body>
+</body>
+
 </html>
-
