@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/codestyles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+
+    <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <title>Matthew Voss</title>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="index.html">Matthew Voss</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="chess.html">Chess AI</a></li>
+                                <li><a href="stocks.html">Stock Market AI</a></li>
+                                <li><a href="fractal.html">Fractal Motion</a></li>
+                                <li><a href="pension.html">Dynamic Programming Pension</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <div class="main-content">
+                <center>
+                    <h2>Magic Mirror</h2>
+                </center>
+
+                <center><img height="450 px" alt="" src="images/my_mirror.jpg" /></center>
+
+                You've probably seen magic mirrors like the above around the internet. They are a very fun RaspberryPi project and I learned quite a bit from building one for myself and one as a gift. I'll separate the software and hardware parts of the build for those who are only interested in one or the other.
+
+                <br><br>
+
+
+
+                <center>
+                    <h3>Hardware: Materials</h3>
+                </center>
+                First step in this project is to find a decent monitor on Craigslist/Letgo or similar services. This project is not cheap so it's good to cut costs when you can, and usually you can get a good, bright LED monitor for $30-$45 if you don't already have one laying around.
+                <br><br>Once you have a monitor you will know what size housing you need to build. The rest of the materials needed are:
+
+                <ul>
+                    <li>2 way mirror</li>
+                    <li>RaspberryPi 3b (with power supply, case for pi)</li>
+                    <li>2 plug power strip</li>
+                    <li>Angle bracket to secure the monitor</li>
+                    <li>Wood for the housing</li>
+                    <li>Fan for ventilation</li>
+                    <li>Small furniture pads</li>
+                    <li>Velcro for securing pi</li>
+                    <li>Picture hanging fastener/hanging cable</li>
+
+                </ul>
+
+                <h4>Wood considerations</h4>
+                For my first magic mirror I used pine because it was cheap. This is fine if you want to paint it or want a light stain, but pine does not take dark stains well at all.
+                <br>
+                <br> For my Mom's magic mirror I used oak and had much much better results with staining, so be sure to pick a wood that will work well for the finishing that you have in mind.
+
+
+
+
+                <center>
+                    <h3>Hardware: Building the frame</h3>
+                </center>
+                The basic construction of the mirror housing is very simple. I just used 3.5" x 0.75" boards for the main housing and 1.5" x 0.75" boards for the frame. This gives it a nice overlap to keep the mirror and monitor in place. <br><br> Shout out to the Dallas Maker Space where I put this together. If you're in DFW and need a place to do handy work like this they have a wonderful workshop. They have all the tools you could ever need for wood working, welding, lazer cutting, electrical work...etc. Great place with very smart people.
+
+                <br><br> Back to the project.<br><br> The main features of the housing that I want to highlight are the ventilation holes on the bottom and the ventilation square on the top.
+
+                <br><br> My magic mirror was running very hot with just the holes in the bottom, so I added a hole in the top and picked up some small fans to fasten to the hole and that helped tremendously.
+
+                <center><img height="450 px" alt="" src="images/mom_mirror_sanded_back.jpg" /></center>
+                <center><img height="450 px" alt="" src="images/mom_mirror_sanded_front.jpg" /></center>
+
+
+
+                <br>
+
+
+                <center>
+                    <h3>Hardware: Sanding, staining</h3>
+                </center>
+                <center><img height="450 px" alt="" src="images/mom_mirror_dry_fit.jpg" /></center>
+
+
+
+                <center><img height="450 px" alt="" src="images/mom_mirror_sample.jpg" /></center>
+
+                <center><img height="450 px" alt="" src="images/mom_mirror_stain_in_progress.jpg" /></center>
+
+                <center><img height="450 px" alt="" src="images/mom_mirror_stained.jpg" /></center>
+                <center><img height="450 px" alt="" src="images/mom_mirror_stained2.jpg" /></center>
+
+
+                <center><img height="450 px" alt="" src="images/mom_mirror_complete.jpg" /></center>
+
+
+                <center>
+                    <h3>Hardware: Assembly</h3>
+                </center>
+                <center><img height="450 px" alt="" src="images/mom_mirror_interior.jpg" /></center><br>
+                <center><img height="450 px" alt="" src="images/mom_mirror_fan.jpg" /></center>
+
+
+                <center>
+                    <h3>Software: Portfolio Projections module</h3>
+                </center>
+
+                <center><img height="450 px" alt="" src="images/my_mirror_screenshot.png" /></center>
+
+
+                <center>
+                    <h3>Software: NASA APOD Fork </h3>
+                </center>
+
+
+
+
+                <center>
+                    <h3>Conclusion</h3>
+                </center>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(window).on('load', function() {
+            $('img#arena').captionjs();
+        });
+
+    </script>
+</body>
+
+</html>
