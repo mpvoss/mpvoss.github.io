@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen">
+
+
+
+    <!--link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/codestyles.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"-->
+
+
+    <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="javascripts/pension.js"></script>
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <title>Matthew Voss</title>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="index.html">Matthew Voss</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="chess.html">Chess AI</a></li>
+                                <li><a href="stocks.html">Stock Market AI</a></li>
+                                <li><a href="fractal.html">Fractal Motion</a></li>
+                                <li><a href="pension.html">Dynamic Programming Pension</a></li>
+<li><a href="mirror.html">Magic Mirror</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <div class="main-content">
+               <div class="container" style="background-color:white; background-size: cover;">
+    <br><br>
+    <center>
+        <h2>Pension Calculator</h2>
+    </center>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Enter parameters</div>
+        <div class="panel-body">
+
+
+		<b>Length of period</b>
+                <input id="groupSize" type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default" placeholder="Enter length of period"
+                       style="margin-right: 5px;" value="3"></input>
+		<b>Number of periods</b>
+                <input id="numGroups" type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default" placeholder="Enter number of periods"
+                       style="margin-right: 5px;" value="2"></input>
+                <br>
+
+
+
+            <div class="form-group">
+                <label for="comment"><b>Paystubs (format is 'date,amount'):</b></label>
+                <textarea id="csvTextArea" class="form-control" rows="5" style="background-color: #f5f5f5" id="comment">2000-01-01,2
+2000-01-15,1
+2000-02-01,3
+2000-02-15,3
+2000-03-01,1
+2000-03-15,2
+2000-04-01,1
+2000-04-15,1</textarea>
+            </div>
+
+
+
+
+
+        <button onclick="process()" type="button" class="btn btn-primary" style="float:right">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Results</div>
+    <div id="results" class="panel-body">
+    Click 'Submit' to view results
+    </div>
+
+
+    <br>
+</div>
+
+<br><br>
+<script>
+
+    function validate(){
+        paystubs = []
+        ts = []
+        var text = $('#csvTextArea').val();
+        var lines = text.split("\n");
+        var errors = []
+        for (var lineIdx = 0; lineIdx < lines.length; lineIdx++){
+             var line = lines[lineIdx];
+
+             if (!line.includes(',')){
+                errors.push("\tLine " + (lineIdx+1) +" ("+ line + ") does not contain a comma");
+                continue;
+             }
+
+             var nbr = line.split(',')[1]
+             var ts = line.split(',')[0]
+             if (isNaN(nbr)){
+                errors.push("\t" + nbr + " is not a number");
+             }else{
+                timestamps.push(ts)
+                paystubs.push(Number.parseFloat(nbr));
+             }
+        }
+
+        var numGroups = $('#numGroups').val()
+        var groupSize = $('#groupSize').val()
+
+        if (numGroups == "" || isNaN(numGroups)){
+            errors.push("\tPeriod count '" + numGroups+ "' is not a number");
+        }
+
+        if (groupSize == "" || isNaN(groupSize)){
+            errors.push("\tPeriod length '" + groupSize+ "' is not a number");
+        }
+
+        if (!isNaN(numGroups) && !isNaN(groupSize)){
+            if ((numGroups * groupSize)>lines.length){
+                errors.push("\tCannot select " + numGroups + " groups of " + groupSize + " from the " + lines.length + " pay periods provided");
+            }
+
+            if (numGroups <= 0){
+                errors.push("\tPeriod count must be greater than 0");
+            }
+
+             if (groupSize <= 0){
+                errors.push("\tPeriod length must be greater than 0");
+            }
+        }
+
+
+
+        var isValid = (errors.length == 0)
+        if (!isValid){alert(errors.join('\n'))}
+
+        return isValid
+
+    }
+
+    function process(){
+        if (validate()){
+        var numGroups = $('#numGroups').val()
+        var groupSize = $('#groupSize').val()
+
+            $('#results').html(run(groupSize,numGroups));
+        }
+    }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
