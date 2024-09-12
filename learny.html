@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYJKXE6N1L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HYJKXE6N1L");
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/codestyles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      }
+    </style>
+
+    <title>Matthew Voss</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner"></div>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Matthew Voss</a>
+          </div>
+
+          <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="about.html">About</a></li>
+              <li><a href="books.html">Books</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                  >Projects <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="chess.html">Chess AI</a></li>
+                  <li><a href="stocks.html">Stock Market AI</a></li>
+                  <li><a href="fractal.html">Fractal Motion</a></li>
+                  <li><a href="pension.html">Dynamic Programming Pension</a></li>
+                  <li><a href="mirror.html">Magic Mirror</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <div class="main-content">
+          <center>
+            <h2>Learny</h2>
+          </center>
+
+
+
+
+          <br />
+          I am a very curious person. Since ChatGPT came out I’ve loved asking it questions about chemistry
+          and history and getting instant answers. It feels like going to the office hours of a brilliant
+          professor and picking their brain endlessly.
+          <br /><br />
+          Since I have a lot of teachers in my family I know there's room for improvement in our education systems today, and playing with LLMs made it clear to me that technology could help more now than ever. I made Learny to explore how LLMs can be used to enhance my own learning, lean into my own curiosity, and share it with others so they could benefit too.<br /><br />
+            
+          <h3>Capabilities</h3>
+          <u>Chat</u>
+          <br />
+          The most obvious feature in the app is a typical chat interface, complete with previous chats in the side pane if you want to go back and review. A curious user can ask questions on this screen like you would with any AI.
+          <br /><br />
+
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_chat.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+
+          <br /><br />
+          Since I like to learn with flashcards, I built in a wizard which can turn any response from the AI into
+          questions and answers for study (it's the icon of cards with a plus sign in the AI chat bubble).
+          <br /><br />
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_flash_wizard.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+          The user can select which ones they want to save, then assign a tag like "History" or "Industrial Revolution" so they're easy to find later. We’ll see where these can be studied shortly.
+          <br /><br />
+          There’s several other fancy features in the AI menu on the right, let’s have a look.
+          <br /><br />
+          <div style="display: flex; width: 80%; float: left">
+            <figure style="margin: auto">
+              <img
+                src="images/learny_ai_menu.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+          <div style="clear: both"></div>
+
+          <br /><br />
+          <u>Suggest Questions</u>
+          <br />
+          Beyond answering questions directly, I've found LLM's are also good at suggesting things for you to ask. To do this the user just needs to click on the “Inspire” button from the AI menu, type in the topic they’re interested
+          in, and click Submit. Learny then displays several buttons with relevant rabbit holes we can explore. Here's what the AI suggested when the Inpsire feature was used with "Industrial Revolution":
+
+          <br /><br />
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_suggest.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+
+          <br /><br />
+          See? Those were already more interesting than the first question I asked! Clicking any of the suggestions will send the question to the AI and bring back the answer. Just like any AI
+          response, we can click the flashcard button to generate flashcards for later study.
+          <br /><br />
+          <u>RAG</u>
+          <br />
+
+          Attentive readers might point out that LLMs only know about information they’ve been trained on. What if we
+          want to talk to Learny about something that it has never seen? That’s a valid use case, and it’s for that
+          reason I wanted to include Retrieval Augmented Generation (RAG) in the project. 
+          
+          <br><br>
+          There’s dozens of great writeups on how RAG works, and you should go look into those if you want the nitty
+          gritty details. Here I'll focus on the high level concepts and how I use them in Learny:
+          <ul>
+
+          
+          <li>Users upload their documents which are then split into chunks and stored in a vector database.</li>
+          <li>Users then toggle on a DocChat mode from the AI menu, which will tell Learny to leverage user documents when answering questions. </li>
+          <li>Learny's answers will then incorporate relevant parts of user documents (as well as citing sources).</li>
+        </ul> 
+          
+           If you're interested in the fancy math that makes this work, here you go:
+          <ul>
+          <li>Cosine similarity: Use an encoding model to mathematically represent query and document chunks & find chunks closest to user query.</li>
+          <li>BM25: Score document chunk relevance based on keyword frequency, return most relevant.</li>
+          <li>Hybrid search: Combine findings from the two approaches above to get a blended result set.</li>
+          <li>Reranking: Use another model to sort the findings before giving them to LLM when generating answer.</li>
+        </ul>
+          Here it is in action, answering esoteric questions from an uploaded flight manual:
+          <br /><br />
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_rag1.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+          
+
+          Clicking the "Show References" link will display the chunks of the uploaded documents used to answer the question, with page numbers included.
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_rag2.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+          <br /><br />
+          Some of my friends in aviation have found this very helpful since they can “talk” to their documents via the
+          AI (while also seeing which page of the source document answered their question). Now the AI Tutor can work
+          with you on any information that you upload!
+          <br /><br />
+
+          <u>Outlines</u>
+          <br />
+          As a visual learner, I badly wanted to have cool dynamically generated diagrams with lines and colors. It seemed engaging,
+          pretty, and fun to build. There’s some cool libraries that let you draw connected boxes, add animations, and
+          show relationships…but in my experiments the AI stayed too high level (vague, unhelpful) or generated diagrams
+          with 1000 boxes (impossible to read). These diagrams were also unusable on small screens. I knew I’d be using
+          this from my phone primarily, so that was a deal breaker.
+          <br /><br />
+          Once I had cut emotional ties with the cool but impractical idea, the pragmatic alternative visual aid was obvious: outlines.
+          The AI breaks a topic into its primary facets, and then creates an itemized list for each. These lists can
+          then be rendered as cards which are much more mobile friendly. 
+          <br><br>
+          Here’s what it looks like if someone uses the outline feature from the AI menu and types in "history of the USSR":
+          <br /><br />
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_outline.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+
+          <br />
+          From here the user has two easy paths to drill down further: 
+          <ul>
+            <li>Click an underlined item to dive into that item.</li>
+            <li>Click the question mark in a box to get a more info about everything in the card.</li>
+          </ul>
+
+          If we click on the question mark on the "People" card we get a more detailed explanation:
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_outline2.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+          
+          Just like any AI response, the flashcard wizard could instantly create flashcards from that message for later study.
+          This streamlined workflow exemplifies the mission of Learny: easy exploration and accelerated mastery.
+          <br /><br />
+          <u>Timelines</u>
+          <br />
+          Another visual learning aid I wanted to include was auto generated timelines. Timelines offer a clear,
+          graphical representation that can make complex data more accessible than mere numerical analysis alone. For
+          instance:
+
+          <br /><br />
+          <div class="center">
+            <figure>
+              <img
+                src="images/learny_timeline.png"
+                style="width: 100%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+              />
+            </figure>
+          </div>
+          <br /><br />
+          Those empire names might ring a bell, but did you know the Incan Empire was around for so much less time than the
+          Byzantine empire? Timelines can add clarity on many concepts as well as making them easier to remember.
+          <br /><br />
+          This feature works similarly to the outline feature: 
+          <ul>
+<li>The user accesses it from the AI menu in the bottom right and enters a topic into the dialog.</li>
+<li>Next Learny will generate the relevant events and start/end dates for each.</li>
+<li>The frontend uses this data to create a chart for the user.</li>
+
+          </ul>
+          
+            
+          <br />
+          <u>Spaced Repetition Flashcards</u>
+          <br />
+          Most features so far have been about information discovery, but what about information mastery and retention?
+          That’s where spaced repetition flashcards come in - if you’ve used Anki before it’s the same idea. It boils
+          down to “hard flashcards are asked again soon, easy ones aren’t.” This adaptive and personalized approach
+          helps to efficiently reinforce knowledge just as it begins to fade, maximizing learning and minimizing time
+          spent on material already mastered.
+          <br /><br />
+          Remember the “create flashcard” wizard we saw earlier? After saving the flashcard, a user might follow this workflow:
+          <ul>
+            <li>User goes to the Flashcards screen, selects a tag to study such as "Industrial Revolution" and clicks “Study”.</li>
+            <li>The user ranks the difficulty of each card after answering.</li>
+            <li>The system will then compute when to next show the card accordingly.</li>
+          </ul>
+          <br /><br />
+          
+          <div class="center" style="display: flex; justify-content: center;">
+            <!-- <figure> -->
+                <img
+                    src="images/learny_flash3.png"
+                    style="width: 70%; height: auto; box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2)"
+                />
+                <br>
+                <!-- </figure> -->
+              </div>
+              <figcaption style="text-align: center; padding-top: 10px;"><i>Before and after screenshots of study mode, where user will rate difficulty to train system on when to show card again.</i></figcaption>
+
+         
+
+
+          <br /><br />
+          Spaced repetition has been very helpful for me to keep a large amount of information in working memory without
+          having to study for hours everyday. Once mastered you might not see a card again for weeks or months, although if
+          you start missing it that time will shorten accordingly.
+
+          <br><br>
+          <h4>Architecture</h4>
+          Now you know <u>what</u> Learny can do, but I'd also like to share <u>how</u> it's designed! I had several goals in mind with the architecture of Learny: 
+          <ul>
+            <li>Separate test/prod environments using Infrastructure as Code for consistency</li>
+            <li>Cost effective relational database</li>
+            <li>Easy maintenance and scalability</li>
+            <li>I didn't want to pay for relational DB, vector DB, or servers when not in use (side project traffic often sporadic and bursty)</li>
+            <li>Maximize use of "off the shelf" authentication code (password reset, UI components, etc) so I didn't have to code it all by hand</li>
+          </ul>
+          
+          
+          <br />
+          So what design came out of these requirements? I'm glad you asked!
+          <!-- <div class="center" style="display: flex; justify-content: center;"> -->
+            <!-- <figure> -->
+                <img
+                    src="images/learny_arch.png"
+                    style="width: 100%;  "
+                />
+                <br>
+                <!-- </figure> -->
+              <!-- </div>
+              <figcaption style="text-align: center; padding-top: 10px;"><i>Diagrams!</i></figcaption> -->
+<br>
+
+
+<style>
+  table {
+    border: 1px solid grey;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 5px; /* Adjust as needed */
+    overflow: hidden;
+  }
+
+  th, td {
+    border: 1px solid grey;
+    padding: 5px; /* Adjust as needed */
+  }
+</style>
+
+<table >
+  <tr>
+    <th>Component</th>
+    <th>Rationale</th>
+  </tr>
+  <tr>
+    <td>React Frontend S3 Site</td>
+    <td>React is my strongsuit for frontend and S3 sites are super easy to deploy + integrate with Cloudfront for caching</td>
+  </tr>
+  <tr>
+    <td>FastAPI Backend using AWS Lambda + API Gateway</td>
+    <td>Only charged for what I use, ultra scalable, and no servers to manage</td>
+  </tr>
+  <tr>
+    <td>Supabase Authentication</td>
+    <td>Excellent user management + and their sign up/login React components saved a lot of time</td>
+  </tr>
+  <tr>
+    <td>Supabase Postgres</td>
+    <td>The free tier is quite generous, meaning managed DB would cost nothing.</td>
+  </tr>
+  <tr>
+    <td>Qdrant Vector DB</td>
+    <td>Another managed service with generous free tier, can pay for more capacity or self host later if needed</td>
+  </tr>
+  <tr>
+    <td>OpenAI API</td>
+    <td>In high traffic apps it can make sense to self host an open source LLM, but Learny is not at that point yet</td>
+  </tr>
+  <tr>
+    <td>Terraform to stand up the infra</td>
+    <td>Quick to put together, consistency across environments, self documenting</td>
+  </tr>
+</table>
+            
+<br>
+           I really like that I can have a webapp side project for just a few dollars a month, and there are very simple modifications I can make if more performance/control is needed:
+           <ul>
+            <li>Supabase Postgres -> RDS so data is co-located with backend</li>
+            <li>Dockerized FastAPI Lambda -> ECS to avoid cold starts</li>
+            <li>Self hosting Qdrant or an open source LLM if that becomes more cost effective</li>
+           </ul>
+            
+          
+
+          I also wanted the project to be easy for people to run locally, so I made a DockerHub image with the following design:
+          <br><br>
+  <div class="center" style="display: flex; justify-content: center;"> 
+          <img
+          src="images/learny_docker_arch.png"
+          style="width: 70%;  "
+      />
+        <!-- </figure> -->
+              </div> 
+      <br>
+      My priority was making it easy to run out of the box, so there's a few key differences:
+      <ul>
+        <li>Python base image with compiled React frontend files included</li>
+        <li>Nginx server takes the place of CloudFront, directs requests to frontend or backend based on path</li>
+        <li>SQLite DB for simplicity instead running a Postgres server</li>
+        <li>Log files and SQLite live in a mounted volume so they persist</li>
+        <li>API keys for Qdrant and OpenAI configured via env vars</li>
+      </ul>
+
+<br>
+<h4>Next steps</h4>
+
+<u>Tutor Modes</u>
+<br>
+It seems useful to have user configurable "modes" for the AI, such as "explain like I'm 5" or "explain using analogies to [insert domain user understands here]."  That way users could quickly switch between modes to get the explanation that makes the most sense to them based on the topic of study. This would be a simple change where the user could define personas which get injected into requests made to the AI, and they can toggle between them in the chat interface.
+<br>
+<br>  
+<u>Quizzes</u><br>
+The intent here is to be able to track the mastery of a topic over time in a consistent way. Quizzes could be generated dynamically or simply come from existing flashcards, but scores would be saved and users could revisit them whenever they like.
+<br>
+<br>
+<u>Team/group support</u><br>
+So far Learny is very much a solo endeavor, but it would be cool to have a team or group mode where users could share flashcards, outlines, and timelines. This would be especially useful for study groups or teams working on a project together, or a class where progress needs to be measured in a standardized way.
+
+
+<br>
+<br>
+<h4>Conclusion</h4>
+Learny has been an incredibly fun project to work on to practice a lot of different technologies as well as build something I enjoy using every day. I migrated all my Anki cards to Learny so that I could put it through its paces and catch bugs, as well as identify friction points as a user and alleviate them. Several recomendations from friends who started using it were great ideas, and it's been cool to see it successfully support helicopter pilots via the RAG DocChat features. I hope you enjoy using it as much as I enjoyed building it!
+
+<br><br>
+<!-- <h4>Links</h4>
+<ul>
+  <li>Github here</li>
+  <li>Docker hub here</li>
+  <li>Live site here</li>
+</ul> -->
+
+        </div>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
